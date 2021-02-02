@@ -21,7 +21,7 @@ const Layout = ({ location, title, children }) => {
         <h1 style={{ display: `inline` }}>{title}</h1>
       </Link>
       <ul style={{ listStyle: `none`, float: `right` }}>
-      <ListLink to="/reviews"><h5 style={{ display: `inline` }}>Reviews</h5></ListLink>
+        {/* <ListLink to="/reviews"><h5 style={{ display: `inline` }}>Reviews</h5></ListLink> */}
         <ListLink to="/categories"><h5 style={{ display: `inline` }}>Categories</h5></ListLink>
         <ListLink to="/blog"><h5 style={{ display: `inline` }}>Blog</h5></ListLink>
         <ListLink to="/about/"><h5 style={{ display: `inline` }}>About</h5></ListLink>

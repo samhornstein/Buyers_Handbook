@@ -11,7 +11,7 @@ const ReviewArticleIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Reviews" />
+      <SEO title="Categories " />
       <h1>Categories</h1>
       <ol style={{ listStyle: `none` }}>
         {categories.map(category => {

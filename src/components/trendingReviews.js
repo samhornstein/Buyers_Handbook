@@ -21,7 +21,7 @@ const TrendingReviews = () => {
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const posts = data.allMarkdownRemark.edges
-  // const titulo = posts.node.frontmatter.title
+
   return (
 
     <div className="TrendingReviews">

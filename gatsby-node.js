@@ -59,12 +59,71 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 //   }
 // }
 
+////////////////// NEW CATEGORIES CODE ////////////////////////////////
+// exports.createPages = async({ graphql, actions ,reporter }) => {
+//   const { createPage } = actions
+
+//   // Define template
+//   const categoryTemplate = path.resolve(`./src/templates/category-template`) //<- need to make template
+
+//   // Return markdown
+//   const result = await graphql(
+//     `
+//     query {
+//       site {
+//         siteMetadata {
+//           title
+//         }
+//       }
+//       allMarkdownRemark(filter: {frontmatter: {type: {eq: "Review"}}}) {
+//         nodes {
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             category
+//           }
+//         }
+//         distinct(field: frontmatter___category)
+//       }
+//     }
+//     `
+//   )
+
+//   if (result.errors) {
+//     reporter.panicOnBuild(
+//       `There was an error loading your blog posts`,
+//       result.errors
+//     )
+//     return
+//   }
+
+//   const categories = data.allMarkdownRemark.distinct
+
+//   // if (categories.length > 0) {
+//     categories.forEach((category) => {
+//       createPage({
+//         path: category,
+//         component: categoryTemplate,
+//         context: {
+//           id: category,
+//         },
+//       })
+//     })
+//   // }
+// }
+
+
+
+/////////////////// END CATEGORIES CODE //////////////////////////////
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Define templates
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const reviewArticle = path.resolve(`./src/templates/review-article.js`)
+  const categoryTemplate = path.resolve(`./src/templates/category-template.js`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -88,6 +147,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        distinct(field: frontmatter___category)
       }
     }
     `
@@ -103,6 +163,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allMarkdownRemark.group[0].edges
   const reviews = result.data.allMarkdownRemark.group[1].edges
+  const categories = result.data.allMarkdownRemark.distinct
 
   if (posts.length > 0) {
     posts.forEach((post) => {
@@ -129,6 +190,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
+  if (categories.length > 0) {
+    categories.forEach((category) => {
+
+      createPage({
+        path: "categories/"+category,
+        component: categoryTemplate,
+        context: {
+          id: category,
+        },
+      })
+    })
+  }
+
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
