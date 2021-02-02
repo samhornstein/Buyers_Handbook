@@ -1,8 +1,11 @@
 ---
-title: Hello World
+title: Camera
 date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
-type: "Blog"
+description: "Camera"
+type: "Review"
+category: "Electronics"
+special status: "Featured"
+title image:
 ---
 
 This is my first post on my new fake blog! How exciting!

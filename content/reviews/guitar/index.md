@@ -1,7 +1,10 @@
 ---
-title: My Second Post!
+title: Best Guitars
 date: "2015-05-06T23:46:37.121Z"
-type: "Blog"
+type: "Review"
+category: "Music"
+special status:
+title image:
 ---
 
 Wow! I love blogging so much already.
