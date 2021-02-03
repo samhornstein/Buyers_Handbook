@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import PreviewCompatibleImage from './PreviewCompatibleImage'
 
 const FeaturedReview = () => {
   const data = useStaticQuery(graphql`
@@ -9,6 +10,13 @@ const FeaturedReview = () => {
         node {
           frontmatter {
             title
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           fields {
             slug
@@ -22,9 +30,19 @@ const FeaturedReview = () => {
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const post = data.allMarkdownRemark.edges[0]
   const titulo = post.node.frontmatter.title
-  return (
 
+  return (
     <div className="FeaturedReview">
+      {post.node.frontmatter.image ? (
+                      <div className="featured-thumbnail">
+                      <PreviewCompatibleImage
+                        imageInfo={{
+                          image: post.node.frontmatter.image,
+                          alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
+                        }}
+                      />
+                    </div>
+      ) : null}
           <h3>
             Featured Review
             </h3>
