@@ -4,7 +4,7 @@ date: "2015-05-06T23:46:37.121Z"
 type: "Review"
 category: "Music"
 special status:
-title image:
+image:
 ---
 
 Wow! I love blogging so much already.

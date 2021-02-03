@@ -5,7 +5,7 @@ description: "Camera"
 type: "Review"
 category: "Electronics"
 special status: "Trending"
-title image:
+image: salty_egg.jpg
 ---
 
 This is my first post on my new fake blog! How exciting!
