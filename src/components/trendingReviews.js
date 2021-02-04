@@ -37,8 +37,14 @@ const TrendingReviews = () => {
           {posts.map(post => {
             const titulo = post.node.frontmatter.title
             return(
-              <li key={post.node.fields.slug}>
+
+              <div>
+
                       {post.node.frontmatter.image ? (
+                        // <li key={post.node.fields.slug}>
+                        <p>
+                  <div class='container'>
+                  <Link to={post.node.fields.slug} type="url">
                       <div className="featured-thumbnail">
                       <PreviewCompatibleImage
                         imageInfo={{
@@ -47,12 +53,19 @@ const TrendingReviews = () => {
                         }}
                       />
                     </div>
-      ) : null}
-                <Link to={post.node.fields.slug} type="url">
+                    <h3 style={{ color: 'white' }} class='bottom-left'>
                 {titulo}
+                </h3>
                 </Link>
-                </li>
-                
+                </div>
+                </p>
+                //</li>
+      ) : null
+      
+      }
+
+               
+      </div>
                 
             )
           })}

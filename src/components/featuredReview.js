@@ -33,7 +33,7 @@ const FeaturedReview = () => {
 
   return (
     <div className="FeaturedReview">
-      {post.node.frontmatter.image ? (
+      {/* {post.node.frontmatter.image ? (
                       <div className="featured-thumbnail">
                       <PreviewCompatibleImage
                         imageInfo={{
@@ -48,7 +48,30 @@ const FeaturedReview = () => {
             </h3>
             <Link to={post.node.fields.slug} type="url">
       {titulo}
-      </Link>
+      </Link> */}
+                <h3>
+            Featured Review
+            </h3>
+      <div class='container'>
+      <Link to={post.node.fields.slug} type="url">
+      {post.node.frontmatter.image ? (
+                      <div className="featured-thumbnail">
+                      <PreviewCompatibleImage
+                        imageInfo={{
+                          image: post.node.frontmatter.image,
+                          alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
+                        }}
+                      />
+                    </div>
+      ) : null}
+        <h2 style={{ color: 'white' }}class='bottom-left'>
+        
+          
+            {titulo}
+         
+        </h2>
+        </Link>
+      </div>
     </div>
   )
 }

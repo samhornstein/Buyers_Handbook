@@ -14,8 +14,9 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Homepage" />
-      <p>Some words on the homepage.</p>
+      <p>The home of the most trusted, data-driven reviews on the internet.</p>
       <FeaturedReview />
+      <br/>
       <TrendingReview />
     </Layout>
   )

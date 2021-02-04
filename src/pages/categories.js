@@ -54,6 +54,13 @@ export const pageQuery = graphql`
         }
         frontmatter {
           category
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
       distinct(field: frontmatter___category)

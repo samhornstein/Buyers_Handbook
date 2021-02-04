@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import Bio from '../components/bio'
 
 const ReviewArticleTemplate = ({ data, location }) => {
   const article = data.markdownRemark
@@ -20,9 +22,21 @@ const ReviewArticleTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{article.frontmatter.title}</h1>
-          <p>{article.frontmatter.date}</p>
+          <h2 >{article.frontmatter.title}</h2>
+          <Bio articleAuthor='Sam Hornstein'/>
+          <p>Last updated on {article.frontmatter.date}</p>
+          {article.frontmatter.image ? (
+              <div className="featured-thumbnail">
+                <PreviewCompatibleImage
+                  imageInfo={{
+                    image: article.frontmatter.image,
+                    alt: `featured image thumbnail for article ${article.frontmatter.title}`,
+                  }}
+                />
+              </div>
+            ) : null}
         </header>
+        <br />
         <section
           dangerouslySetInnerHTML={{ __html: article.html }}
           itemProp="articleBody"
@@ -40,8 +54,6 @@ export default ReviewArticleTemplate
 export const pageQuery = graphql`
   query ReviewArticleBySlug(
     $id: String!
-    $previousPostId: String
-    $nextPostId: String
   ) {
     site {
       siteMetadata {
@@ -56,22 +68,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
