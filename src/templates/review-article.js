@@ -22,10 +22,17 @@ const ReviewArticleTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h2 >{article.frontmatter.title}</h2>
-          <Bio articleAuthor='Sam Hornstein'/>
-          <p>Last updated on {article.frontmatter.date}</p>
-          {article.frontmatter.image ? (
+          <h2 style={{ display: 'inline-block', marginTop: '0' }} >{article.frontmatter.title}</h2>
+          <div style={{ display: 'inline-block', float: 'right' }} >
+            Last updated on {article.frontmatter.date}
+          </div>
+          <Bio articleAuthor='Sam Hornstein'/> 
+          
+          
+        </header>
+        <br />
+
+        {/* {article.frontmatter.image ? (
               <div className="featured-thumbnail">
                 <PreviewCompatibleImage
                   imageInfo={{
@@ -34,13 +41,12 @@ const ReviewArticleTemplate = ({ data, location }) => {
                   }}
                 />
               </div>
-            ) : null}
-        </header>
-        <br />
+            ) : null} */}
         <section
           dangerouslySetInnerHTML={{ __html: article.html }}
           itemProp="articleBody"
         />
+
         <hr />
         <footer>
         </footer>

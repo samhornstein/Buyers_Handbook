@@ -5,7 +5,7 @@ description: Best cars.
 type: "Review"
 category: "Automotive"
 special status: "Trending"
-image:
+image: './car.jpeg'
 ---
 
 ### Car car car

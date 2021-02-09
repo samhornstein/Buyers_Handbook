@@ -38,35 +38,29 @@ const TrendingReviews = () => {
             const titulo = post.node.frontmatter.title
             return(
 
-              <div>
-
-                      {post.node.frontmatter.image ? (
-                        // <li key={post.node.fields.slug}>
-                        <p>
-                  <div class='container'>
-                  <Link to={post.node.fields.slug} type="url">
-                      <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.node.frontmatter.image,
-                          alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                    <h3 style={{ color: 'white' }} class='bottom-left'>
-                {titulo}
-                </h3>
-                </Link>
-                </div>
+              <div style={{ display: 'inline-grid', margin:'10px' }}>
+                {post.node.frontmatter.image ? (
+                  <p>
+                    <div class='container'  >
+                    <Link to={post.node.fields.slug} type="url">
+                        <div className="featured-thumbnail">
+                        <PreviewCompatibleImage
+                          imageInfo={{
+                            image: post.node.frontmatter.image,
+                            alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
+                            size: '300px',
+                          }}
+                        />
+                      </div>
+                      <h3 style={{ color: 'white', textShadow: ' 1px 1px 0 #000' }} class='bottom-left'>
+                  {titulo}
+                  </h3>
+                  </Link>
+                  </div>
                 </p>
-                //</li>
-      ) : null
-      
-      }
-
-               
-      </div>
-                
+              ) : null
+            }     
+          </div>
             )
           })}
     </div>

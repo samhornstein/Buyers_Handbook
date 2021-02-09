@@ -64,7 +64,7 @@ const FeaturedReview = () => {
                       />
                     </div>
       ) : null}
-        <h2 style={{ color: 'white' }}class='bottom-left'>
+        <h2 style={{ color: 'white', textShadow: ' 1px 1px 0 #000' }} class='bottom-left'>
         
           
             {titulo}

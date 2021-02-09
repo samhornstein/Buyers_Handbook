@@ -13,6 +13,8 @@ Never miss a moment again! We scoured the internet for the top DSLR cameras. Fro
 
 Camera technology has come a long way since the days of polaroids and disposables. Whether you're a professional, enthusiast, or just someone who wants to capture moments, these DSLR cameras will wow you!
 
+##Our Picks
+
 ###Canon EOS 2000D
 
 ![Canon 2000D](./canon2000d.jpg)
@@ -21,6 +23,9 @@ Camera technology has come a long way since the days of polaroids and disposable
 - this is a very good camera
 - some might even say the best
 - buy it today!
+######Check Price
+
+<br>
 
 ###Canon EOS Rebel
 ![Canon EOS Rebl](./canoneosrebel.jpg)
@@ -29,3 +34,4 @@ Camera technology has come a long way since the days of polaroids and disposable
 - more expensive
 - shoots better pictures
 - video capability
+######Check Price
