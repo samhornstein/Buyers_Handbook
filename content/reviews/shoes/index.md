@@ -4,7 +4,7 @@ date: "2015-05-01T22:12:03.284Z"
 description: "Camera"
 type: "Review"
 category: "Apparel"
-special status: "Trending"
+special_status: "Trending"
 image: nikes.jpeg
 ---
 

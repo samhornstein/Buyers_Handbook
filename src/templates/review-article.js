@@ -32,16 +32,6 @@ const ReviewArticleTemplate = ({ data, location }) => {
         </header>
         <br />
 
-        {/* {article.frontmatter.image ? (
-              <div className="featured-thumbnail">
-                <PreviewCompatibleImage
-                  imageInfo={{
-                    image: article.frontmatter.image,
-                    alt: `featured image thumbnail for article ${article.frontmatter.title}`,
-                  }}
-                />
-              </div>
-            ) : null} */}
         <section
           dangerouslySetInnerHTML={{ __html: article.html }}
           itemProp="articleBody"

@@ -4,7 +4,7 @@ title: Car
 description: Best cars.
 type: "Review"
 category: "Automotive"
-special status: "Trending"
+special_status: "Trending"
 image: './car.jpeg'
 ---
 

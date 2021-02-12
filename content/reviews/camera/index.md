@@ -5,7 +5,7 @@ date: "2015-05-01T22:12:03.284Z"
 description: "These are the best DSLR cameras on the market."
 type: "Review"
 category: "Electronics"
-special status: "Featured"
+special_status: "Featured"
 image: dslr_camera.jpeg
 ---
 
