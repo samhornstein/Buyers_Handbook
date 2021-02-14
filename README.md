@@ -1,4 +1,5 @@
-##To Do
+## To Do
+### Completed
 - [x] Format review images
 - [x] Write python script to generate formatted review posts
 - [x] Fix file path for generation.py
@@ -6,13 +7,17 @@
 - [x] reformat review date as string
 - [x] obtain_unsplash_image.py
 - [x] integrate obtain_unsplash_image.py into scrub.py
+- [x] store product link and hyperlink with Check Price
+- [x] make formatting of trending post cards on homepage consistent
+
+### Next
+- [ ] Format categories page
+- [ ] write script to automatically update trending and featured posts
+- [ ] add google analytics
+
+### Future
 - [ ] Improve blog formatting
 - [ ] Write about page
 - [ ] Create contact form
-- [ ] Format categories page
 - [ ] Write content for homepage
-- [ ] store product link and hyperlink with Check Price
-- [ ] write script to automatically update trending and featured posts
-- [ ] add google analytics
 - [ ] add plots of review info
-- [ ] make formatting of trending post cards on homepage consistent

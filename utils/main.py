@@ -2,10 +2,12 @@ from scrub import store
 from generate import generate
 from obtain_unsplash_image import obtain_unsplash_image
 
-keyword = 'plants'
+# keyword = input('Please enter the keyword you would like to generate a review for: ')
+
+keyword = 'shoes'
 
 df = store(keyword)
 
 obtain_unsplash_image(keyword)
 
-generate(keyword, date='December 2020', special_status="Trending", category='Garden', author='Kelsey Landon')
+generate(keyword)

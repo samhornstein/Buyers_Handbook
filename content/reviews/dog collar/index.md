@@ -1,10 +1,10 @@
 ---
 title: Dog collar
-author: 
+author: Sam Hornstein
 date: February 2021
 description: 
 type: Review
-category: Miscellaneous
+category: Trending
 special_status: Trending
 image: GoTagsPer.jpeg
 ---

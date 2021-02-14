@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 from pathlib import Path
 import numpy as np
-import obtain
+import obtain_amazon_product
 from obtain_unsplash_image import obtain_unsplash_image
 import os
 import re
@@ -50,17 +50,17 @@ def store(keyword):
  
         new_soup = BeautifulSoup(new_webpage.content, "lxml")
 
-        title = obtain.get_title(new_soup)
+        title = obtain_amazon_product.get_title(new_soup)
         alias = re.sub(r'[^a-zA-Z0-9_]', '', title[:10])
-        price = obtain.get_price(new_soup)
-        rating = obtain.get_rating(new_soup)[:-15]
-        review_count = obtain.get_review_count(new_soup)[:-8]
-        availability = obtain.get_availability(new_soup)
-        features = obtain.get_features(new_soup)
-        image_data, image_extension = obtain.get_image(new_soup, alias)
+        price = obtain_amazon_product.get_price(new_soup)
+        rating = obtain_amazon_product.get_rating(new_soup)[:-15]
+        review_count = obtain_amazon_product.get_review_count(new_soup)[:-8]
+        availability = obtain_amazon_product.get_availability(new_soup)
+        features = obtain_amazon_product.get_features(new_soup)
+        image_data, image_extension = obtain_amazon_product.get_image(new_soup, alias)
 
 
-        print(title + " feched.")
+        print(title + " fetched.")
 
         df = df.append({'Title': title, 'Alias': alias, 'Link': link, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
         # df['Price'].replace('', np.nan, inplace=True)

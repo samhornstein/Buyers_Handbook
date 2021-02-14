@@ -3,7 +3,7 @@ from datetime import date
 import pandas as pd
 import os
 
-def generate(keyword, author="", date=date.today().strftime("%B %Y"), description="", category="Miscellaneous", special_status="", **kwargs):
+def generate(keyword, author='', date=date.today().strftime("%B %Y"), description='', category="Miscellaneous", special_status='', **kwargs):
     path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
     df = pd.read_csv(path+'df_output.csv') 
 
