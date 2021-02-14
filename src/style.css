@@ -325,8 +325,32 @@ a:focus {
 /* Bottom left text */
 .bottom-left {
   position: absolute;
-  bottom: 8px;
-  left: 16px;
+  bottom: 0px;
+  left: 8px;
+}
+
+.crop_featured {
+  width: 600px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.crop_featured img {
+  width: 600px;
+  height: 400px;
+  margin: 0 0 0 0;
+}
+
+.crop_trending {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.crop_trending img {
+  width: 400px;
+  height: 400px;
+  margin: -10px 0 0 0;
 }
 
 .featured-thumbnail {
@@ -337,6 +361,8 @@ a:focus {
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
 }
+
+/*End of added by me*/
 
 /* Media queries */
 

@@ -56,12 +56,14 @@ const FeaturedReview = () => {
       <Link to={post.node.fields.slug} type="url">
       {post.node.frontmatter.image ? (
                       <div className="featured-thumbnail">
+                        <div className="crop_featured">
                       <PreviewCompatibleImage
                         imageInfo={{
                           image: post.node.frontmatter.image,
                           alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
                         }}
                       />
+                      </div>
                     </div>
       ) : null}
         <h2 style={{ color: 'white', textShadow: ' 1px 1px 0 #000' }} class='bottom-left'>

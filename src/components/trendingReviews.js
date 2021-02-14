@@ -44,6 +44,7 @@ const TrendingReviews = () => {
                     <div class='container'  >
                     <Link to={post.node.fields.slug} type="url">
                         <div className="featured-thumbnail">
+                          <div className="crop_trending">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: post.node.frontmatter.image,
@@ -51,6 +52,7 @@ const TrendingReviews = () => {
                             size: '300px',
                           }}
                         />
+                        </div>
                       </div>
                       <h3 style={{ color: 'white', textShadow: ' 1px 1px 0 #000' }} class='bottom-left'>
                   {titulo}
