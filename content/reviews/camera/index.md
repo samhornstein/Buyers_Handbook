@@ -5,9 +5,11 @@ date: "January 2021"
 description: "These are the best DSLR cameras on the market."
 type: "Review"
 category: "Electronics"
-special_status: "Featured"
+special_status: "Trending"
 image: dslr_camera.jpeg
 ---
+
+![DSLR Camera](./dslr_camera.jpeg)
 
 Never miss a moment again! We scoured the internet for the top DSLR cameras. From well-known brands to newcomers, this industry has never been more competitive. And that means one thing for you, the consumer: better deals!
 

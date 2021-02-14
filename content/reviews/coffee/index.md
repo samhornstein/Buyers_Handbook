@@ -6,7 +6,7 @@ description:
 type: Review
 category: Miscellaneous
 special_status: Trending
-image: GevaliaMe.jpeg
+image: pic1.jpg
 ---
 ##Our Picks
 ###Gevalia Medium Roast Ground Coffee, Colombian, 72 Ounce (Pack of 6)

@@ -4,6 +4,7 @@ import pandas as pd
 from pathlib import Path
 import numpy as np
 import obtain
+from obtain_unsplash_image import obtain_unsplash_image
 import os
 import re
 import time
@@ -38,7 +39,7 @@ def store(keyword):
         if len(links_list) == 3:
             break
  
-    df = pd.DataFrame(columns=['Title', 'Alias', 'Price', 'Rating', 'Review Count', 'Availability', 'Features', 'Image Data', 'Image Extension'])
+    df = pd.DataFrame(columns=['Title', 'Alias', 'Link', 'Price', 'Rating', 'Review Count', 'Availability', 'Features', 'Image Data', 'Image Extension'])
 
     # Loop for extracting product details from each link 
     for link in links_list:
@@ -58,9 +59,10 @@ def store(keyword):
         features = obtain.get_features(new_soup)
         image_data, image_extension = obtain.get_image(new_soup, alias)
 
+
         print(title + " feched.")
 
-        df = df.append({'Title': title, 'Alias': alias, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
+        df = df.append({'Title': title, 'Alias': alias, 'Link': link, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
         # df['Price'].replace('', np.nan, inplace=True)
         # df['Availability'].replace('Not Available', np.nan, inplace=True)
         # df['Availability'].replace('^Only', 'In Stock.', regex=True, inplace=True)

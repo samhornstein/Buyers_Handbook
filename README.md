@@ -4,11 +4,15 @@
 - [x] Fix file path for generation.py
 - [x] add options to generate.py: date, category, special_status, description, author
 - [x] reformat review date as string
+- [x] obtain_unsplash_image.py
+- [x] integrate obtain_unsplash_image.py into scrub.py
 - [ ] Improve blog formatting
 - [ ] Write about page
 - [ ] Create contact form
 - [ ] Format categories page
 - [ ] Write content for homepage
-- [ ] obtain_unsplash_image.py
 - [ ] store product link and hyperlink with Check Price
 - [ ] write script to automatically update trending and featured posts
+- [ ] add google analytics
+- [ ] add plots of review info
+- [ ] make formatting of trending post cards on homepage consistent

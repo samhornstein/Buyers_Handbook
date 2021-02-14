@@ -14,7 +14,8 @@ def generate(keyword, author="", date=date.today().strftime("%B %Y"), descriptio
     article_type= "Review"
     # category= "Electronics"
     # special_status= "Trending"
-    image= df['Alias'].iloc[0]+'.'+df['Image Extension'].iloc[0]
+    # image= df['Alias'].iloc[0]+'.'+df['Image Extension'].iloc[0]
+    image = 'main_product_image.jpg'
 
     frontmatter = "---\ntitle: "+title+"\nauthor: "+author+"\ndate: "+date+"\ndescription: "+description+"\ntype: "+article_type+"\ncategory: "+category+"\nspecial_status: "+special_status+"\nimage: "+image+"\n---\n"
 
@@ -40,7 +41,8 @@ def generate(keyword, author="", date=date.today().strftime("%B %Y"), descriptio
             else:
                 f.write("- "+feature+"\n")
 
-        f.write('######Check Price\n')
+        # f.write('######Check Price\n')
+        f.write('######[Check Price]('+"https://www.amazon.com"+row['Link']+')\n')
 
         with open(path+row['Alias']+'.'+row['Image Extension'], 'wb') as f:
             decoded_string = base64.b64decode(row['Image Data'])

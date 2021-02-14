@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import Bio from '../components/bio'
 
 const ReviewArticleTemplate = ({ data, location }) => {
@@ -26,17 +25,13 @@ const ReviewArticleTemplate = ({ data, location }) => {
           <div style={{ display: 'inline-block', float: 'right' }} >
             Last updated {article.frontmatter.date}
           </div>
-          <Bio articleAuthor='Sam Hornstein'/> 
-          
-          
+          <Bio articleAuthor={article.frontmatter.author}/>  
         </header>
         <br />
-
         <section
           dangerouslySetInnerHTML={{ __html: article.html }}
           itemProp="articleBody"
         />
-
         <hr />
         <footer>
         </footer>
@@ -62,6 +57,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        author
         date
         description
         image {

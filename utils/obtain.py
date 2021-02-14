@@ -18,12 +18,6 @@ def get_title(soup):
         # Title as a string value
         title_string = title_value.strip()
  
-        # # Printing types of values for efficient understanding
-        # print(type(title))
-        # print(type(title_value))
-        # print(type(title_string))
-        # print()
- 
     except AttributeError:
         title_string = ""   
  
@@ -160,28 +154,19 @@ if __name__ == '__main__':
  
     # The webpage URL
     URL = "https://www.amazon.com/s?k=guitar&i=mi&ref=nb_sb_noss_1"
-
      
     # HTTP Request
     webpage = requests.get(URL, headers=HEADERS)
 
-    # print(webpage)
-
-
- 
     # Soup Object containing all data
     soup = BeautifulSoup(webpage.content, "lxml")
-
-    # print(soup)
  
     # Fetch links as List of Tag Objects
     links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
 
- 
     # Store the links
     links_list = []
 
- 
     # Loop for extracting links from Tag Objects
     for link in links:
         links_list.append(link.get('href'))
@@ -190,12 +175,7 @@ if __name__ == '__main__':
 
     # Loop for extracting product details from each link 
     for link in links_list:
-
-
- 
         new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
-
-
         new_soup = BeautifulSoup(new_webpage.content, "lxml")
          
         # Function calls to display all necessary product information
