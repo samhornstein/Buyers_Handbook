@@ -1,7 +1,7 @@
 ---
 title: Guitars
 author: Sam Hornstein
-date: "2015-05-01T22:12:03.284Z"
+date: ""January 2021"
 description: These are the best DSLR cameras on the market.
 type: Review
 category: Electronics

@@ -1,8 +1,8 @@
 from scrub import store
 from generate import generate
 
-keyword = 'telescope'
+keyword = 'dog collar'
 
 df = store(keyword)
 
-generate(keyword)
+generate(keyword, special_status="Trending")

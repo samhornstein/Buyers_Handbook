@@ -1,19 +1,19 @@
 import base64
+from datetime import date
 import pandas as pd
 import os
 
-def generate(keyword):
-    # df = pd.read_csv('utils/df_output.csv')
+def generate(keyword, author="", date=date.today().strftime("%B %Y"), description="", category="Miscellaneous", special_status="", **kwargs):
     path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
     df = pd.read_csv(path+'df_output.csv') 
 
-    title= keyword
-    author= "Sam Hornstein"
-    date= "2015-05-01T22:12:03.284Z"
-    description= "These are the best DSLR cameras on the market."
+    title= keyword[0].upper()+keyword[1:]
+    # author = "Sam"
+    # date= "2015-05-01T22:12:03.284Z"
+    # description= "Test description"
     article_type= "Review"
-    category= "Electronics"
-    special_status= "Trending"
+    # category= "Electronics"
+    # special_status= "Trending"
     image= df['Alias'].iloc[0]+'.'+df['Image Extension'].iloc[0]
 
     frontmatter = "---\ntitle: "+title+"\nauthor: "+author+"\ndate: "+date+"\ndescription: "+description+"\ntype: "+article_type+"\ncategory: "+category+"\nspecial_status: "+special_status+"\nimage: "+image+"\n---\n"

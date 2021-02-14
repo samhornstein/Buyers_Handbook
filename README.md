@@ -1,9 +1,14 @@
 ##To Do
 - [x] Format review images
 - [x] Write python script to generate formatted review posts
-- [ ] Fix file path for generation.py
+- [x] Fix file path for generation.py
+- [x] add options to generate.py: date, category, special_status, description, author
+- [x] reformat review date as string
 - [ ] Improve blog formatting
 - [ ] Write about page
 - [ ] Create contact form
 - [ ] Format categories page
 - [ ] Write content for homepage
+- [ ] obtain_unsplash_image.py
+- [ ] store product link and hyperlink with Check Price
+- [ ] write script to automatically update trending and featured posts

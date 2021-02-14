@@ -1,6 +1,6 @@
 ---
 title: Shoes
-date: "2015-05-01T22:12:03.284Z"
+date: "January 2021"
 description: "Camera"
 type: "Review"
 category: "Apparel"

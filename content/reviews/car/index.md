@@ -1,6 +1,6 @@
 ---
 title: Car
-# date: "2015-05-28T22:40:32.169Z"
+date: "January 2021"
 description: Best cars.
 type: "Review"
 category: "Automotive"

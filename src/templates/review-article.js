@@ -24,7 +24,7 @@ const ReviewArticleTemplate = ({ data, location }) => {
         <header>
           <h2 style={{ display: 'inline-block', marginTop: '0' }} >{article.frontmatter.title}</h2>
           <div style={{ display: 'inline-block', float: 'right' }} >
-            Last updated on {article.frontmatter.date}
+            Last updated {article.frontmatter.date}
           </div>
           <Bio articleAuthor='Sam Hornstein'/> 
           
@@ -62,7 +62,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
         description
         image {
           childImageSharp {
