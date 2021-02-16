@@ -13,10 +13,11 @@
 
 ### Next
 - [x] Improve review_generator, pull in more than 5 images, delete duplicates
+- [ ] Format categories page
 - [ ] pull in sellers name in obtain
 - [ ] generalize obtain_unsplash_image.py to have option to output to a category images folder
-- [ ] Format categories page
 - [ ] add google analytics
+- [ ] reconfigure scrub so that it only queries pages if there are less than 5 posts with full product features and no duplicates
 
 ### Future
 - [ ] Improve blog formatting
@@ -25,3 +26,4 @@
 - [ ] Write content for homepage
 - [ ] add plots of review info
 - [ ] add user input or argparse to python utilities
+- [ ] get amazon affliate links
