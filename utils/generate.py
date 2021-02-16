@@ -7,7 +7,7 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
     path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
     df = pd.read_csv(path+'df_output.csv') 
 
-    title= keyword[0].upper()+keyword[1:]
+    title= "Best " + keyword[0].upper()+keyword[1:]
     # author = "Sam"
     # date= "2015-05-01T22:12:03.284Z"
     # description= "Test description"

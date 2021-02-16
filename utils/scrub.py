@@ -36,7 +36,7 @@ def store(keyword):
     # Loop for extracting links from Tag Objects
     for link in links:
         links_list.append(link.get('href'))
-        if len(links_list) == 3:
+        if len(links_list) == 6:
             break
  
     df = pd.DataFrame(columns=['Title', 'Alias', 'Link', 'Price', 'Rating', 'Review Count', 'Availability', 'Features', 'Image Data', 'Image Extension'])
@@ -60,15 +60,17 @@ def store(keyword):
         image_data, image_extension = obtain_amazon_product.get_image(new_soup, alias)
 
 
-        print(title + " fetched.")
+        print("Fetched " + title)
 
         df = df.append({'Title': title, 'Alias': alias, 'Link': link, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
-        # df['Price'].replace('', np.nan, inplace=True)
-        # df['Availability'].replace('Not Available', np.nan, inplace=True)
+        df['Price'].replace('', np.nan, inplace=True)
+        df.replace('Not Available', np.nan, inplace=False)
         # df['Availability'].replace('^Only', 'In Stock.', regex=True, inplace=True)
         # df['Availability'].replace('In Stock.*', 'In Stock.', regex=True, inplace=True)
         # df['Availability'].replace('?!In Stock.', np.nan, inplace=True)
-        # df.dropna(inplace=True)
+        df.dropna(inplace=True)
+        df.drop_duplicates(subset=['Title'])
+        df = df.head()
 
         base_path = Path(__file__).parent
 
@@ -81,7 +83,7 @@ def store(keyword):
 
         # df.to_csv(base_path / 'df_output.csv')
 
-        print(title + " stored.")
+        print('Stored ' + title)
 
         time.sleep(5)
 

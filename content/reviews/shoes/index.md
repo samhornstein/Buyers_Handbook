@@ -5,7 +5,7 @@ date: February 2021
 description: 
 type: Review
 category: Miscellaneous
-special_status: Featured
+special_status: Trending
 image: main_product_image.jpg
 ---
 ##Our Picks

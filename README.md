@@ -9,10 +9,13 @@
 - [x] integrate obtain_unsplash_image.py into scrub.py
 - [x] store product link and hyperlink with Check Price
 - [x] make formatting of trending post cards on homepage consistent
+- [x] write script to automatically update trending and featured posts
 
 ### Next
+- [x] Improve review_generator, pull in more than 5 images, delete duplicates
+- [ ] pull in sellers name in obtain
+- [ ] generalize obtain_unsplash_image.py to have option to output to a category images folder
 - [ ] Format categories page
-- [ ] write script to automatically update trending and featured posts
 - [ ] add google analytics
 
 ### Future
@@ -21,3 +24,4 @@
 - [ ] Create contact form
 - [ ] Write content for homepage
 - [ ] add plots of review info
+- [ ] add user input or argparse to python utilities
