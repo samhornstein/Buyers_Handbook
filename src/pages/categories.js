@@ -13,27 +13,17 @@ const ReviewArticleIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Categories " />
       <h1>Categories</h1>
-      <ol style={{ listStyle: `none` }}>
         {categories.map(category => {
           return (
-            <li key={category}>
-              <article
-                className="category-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
+                <div className='category'>
                   <h2>
                     <Link to={category} type="url">
                       <span itemProp="headline">{category}</span>
                       </Link>
                   </h2>
-                </header>
-              </article>
-            </li>
+                </div>
           )
         })}
-      </ol>
     </Layout>
   )
 }

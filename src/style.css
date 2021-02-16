@@ -329,6 +329,11 @@ a:focus {
   left: 8px;
 }
 
+.category {
+  display: inline-grid;
+  padding: 2.5%;
+}
+
 .crop_featured {
   width: 600px;
   height: 200px;
