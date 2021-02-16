@@ -13,7 +13,7 @@
 
 ### Next
 - [x] Improve review_generator, pull in more than 5 images, delete duplicates
-- [ ] Format categories page
+- [x] Format categories page
 - [ ] pull in sellers name in obtain
 - [ ] generalize obtain_unsplash_image.py to have option to output to a category images folder
 - [ ] add google analytics
