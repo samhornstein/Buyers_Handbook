@@ -7,7 +7,15 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
     path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
     df = pd.read_csv(path+'df_output.csv') 
 
-    title= "Best " + keyword[0].upper()+keyword[1:]
+    title_split = keyword.split(' ')
+    title_list = []
+    for word in title_split:
+        title_list.append(word[0].upper()+word[1:])
+
+    title = 'Best ' + ' '.join(title_list)
+
+
+    # title= "Best " + keyword[0].upper()+keyword[1:]
     # author = "Sam"
     # date= "2015-05-01T22:12:03.284Z"
     # description= "Test description"
@@ -29,6 +37,7 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
     for index, row in df.iterrows():
         f = open(path+'index.md', 'a')
         f.write('###'+row['Title']+'\n')
+        f.write('######Sold by '+row['Seller']+'\n')
         f.write('!['+row['Title']+'](./'+row['Alias']+'.'+row['Image Extension']+')\n')
         f.write('###Product Info:\n')
         features = row['Features'].split("', '")

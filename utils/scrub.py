@@ -36,10 +36,10 @@ def store(keyword):
     # Loop for extracting links from Tag Objects
     for link in links:
         links_list.append(link.get('href'))
-        if len(links_list) == 6:
+        if len(links_list) == 10:
             break
  
-    df = pd.DataFrame(columns=['Title', 'Alias', 'Link', 'Price', 'Rating', 'Review Count', 'Availability', 'Features', 'Image Data', 'Image Extension'])
+    df = pd.DataFrame(columns=['Title', 'Alias', 'Link', 'Seller', 'Price', 'Rating', 'Review Count', 'Availability', 'Features', 'Image Data', 'Image Extension'])
 
     # Loop for extracting product details from each link 
     for link in links_list:
@@ -53,6 +53,7 @@ def store(keyword):
         title = obtain_amazon_product.get_title(new_soup)
         alias = re.sub(r'[^a-zA-Z0-9_]', '', title[:10])
         price = obtain_amazon_product.get_price(new_soup)
+        seller = obtain_amazon_product.get_seller(new_soup)
         rating = obtain_amazon_product.get_rating(new_soup)[:-15]
         review_count = obtain_amazon_product.get_review_count(new_soup)[:-8]
         availability = obtain_amazon_product.get_availability(new_soup)
@@ -62,30 +63,36 @@ def store(keyword):
 
         print("Fetched " + title)
 
-        df = df.append({'Title': title, 'Alias': alias, 'Link': link, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
+        df = df.append({'Title': title, 'Alias': alias, 'Link': link, 'Seller': seller, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
+
         df['Price'].replace('', np.nan, inplace=True)
         df.replace('Not Available', np.nan, inplace=False)
         # df['Availability'].replace('^Only', 'In Stock.', regex=True, inplace=True)
         # df['Availability'].replace('In Stock.*', 'In Stock.', regex=True, inplace=True)
         # df['Availability'].replace('?!In Stock.', np.nan, inplace=True)
         df.dropna(inplace=True)
-        df.drop_duplicates(subset=['Title'])
-        df = df.head()
 
-        base_path = Path(__file__).parent
+        df.drop_duplicates(subset=['Title'], inplace=True)
+        df.drop_duplicates(subset=['Image Data'], inplace=True)
+        df.drop_duplicates(subset=['Seller'], inplace=True)
 
-        path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
-
-        if not os.path.exists(path):
-            os.makedirs(path)
-
-        df.to_csv(path+'df_output.csv')
-
-        # df.to_csv(base_path / 'df_output.csv')
-
-        print('Stored ' + title)
+        if len(df.index) == 5:
+            break
 
         time.sleep(5)
+
+
+
+    df = df.head()
+
+    base_path = Path(__file__).parent
+
+    path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
+
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    df.to_csv(path+'df_output.csv')
 
     return df
 

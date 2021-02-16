@@ -17,18 +17,14 @@ const CategoryTemplate = ({ data, location }) => {
           return(
             <header>
 
-            <p className="post-meta">
+            <h3 className="post-meta">
               <Link
                 className="title has-text-primary is-size-4"
                 to={post.fields.slug}
               >
                 {post.frontmatter.title}
               </Link>
-              <span> &bull; </span>
-              <span className="subtitle is-size-5 is-block">
-                {post.frontmatter.date}
-              </span>
-            </p>
+            </h3>
           </header>
         )
         })}

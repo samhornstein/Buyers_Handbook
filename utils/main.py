@@ -4,10 +4,10 @@ from obtain_unsplash_image import obtain_unsplash_image
 
 # keyword = input('Please enter the keyword you would like to generate a review for: ')
 
-keyword = 'succulents'
+keyword = 'bed sheets'
 
 df = store(keyword)
 
 obtain_unsplash_image(keyword)
 
-generate(keyword, category='Garden', special_status='Trending')
+generate(keyword, category='Home', special_status='Trending')

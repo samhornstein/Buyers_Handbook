@@ -23,6 +23,18 @@ def get_title(soup):
  
     return title_string
  
+#Function to extract Seller
+def get_seller(soup):
+    try:
+        seller = soup.find("a", attrs={'id':'bylineInfo'})
+        seller_value = seller.string
+        seller_string = seller_value.strip()[10:-6]
+    
+    except AttributeError:
+        seller_string = ''
+
+    return seller_string
+
 # Function to extract Product Price
 def get_price(soup):
  
@@ -79,9 +91,10 @@ def get_availability(soup):
 # Function to extract Product Features
 def get_features(soup):
     try:
+        features = soup.find("div", attrs={'id':'featurebullets_feature_div'})
         features = soup.find("div", attrs={'id':'feature-bullets'})
         features = features.find("ul")
-        features = features.find_all("li")
+        features = features.find_all("li", attrs={'id':''})
 
         features_final = []
 
