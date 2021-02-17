@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage"
 import SEO from "../components/seo"
 
 const CategoryTemplate = ({ data, location }) => {
@@ -15,17 +16,31 @@ const CategoryTemplate = ({ data, location }) => {
         {nodes.map(post => {
 
           return(
-            <header>
-
-            <h3 className="post-meta">
-              <Link
-                className="title has-text-primary is-size-4"
-                to={post.fields.slug}
-              >
-                {post.frontmatter.title}
-              </Link>
-            </h3>
-          </header>
+            <div style={{ display: 'inline-grid', margin:'10px' }}>
+                {post.frontmatter.image ? (
+                  <p>
+                    <div class='container'  >
+                    <Link to={post.fields.slug} type="url">
+                        <div className="featured-thumbnail">
+                          <div className="crop_trending">
+                        <PreviewCompatibleImage
+                          imageInfo={{
+                            image: post.frontmatter.image,
+                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                            size: '300px',
+                          }}
+                        />
+                        </div>
+                      </div>
+                      <h3 style={{ color: 'white', textShadow: ' 1px 1px 0 #000' }} class='bottom-left'>
+                  {post.frontmatter.title}
+                  </h3>
+                  </Link>
+                  </div>
+                </p>
+              ) : null
+            }     
+          </div>
         )
         })}
       </ol>
