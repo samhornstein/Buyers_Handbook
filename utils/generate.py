@@ -44,11 +44,11 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
         features_length = len(features)-1
         for i, feature in enumerate(features):
             if i == 0:
-                f.write("- "+feature[2:]+"\n")
+                f.write("- "+feature.split('.')[0][2:]+"\n")
             elif i == features_length:
-                f.write("- "+feature[:-2]+"\n")
+                f.write("- "+feature.split('.')[0][:-2]+"\n")
             else:
-                f.write("- "+feature+"\n")
+                f.write("- "+feature.split('.')[0]+"\n")
 
         # f.write('######Check Price\n')
         f.write('######[Check Price]('+"https://www.amazon.com"+row['Link']+')\n')
