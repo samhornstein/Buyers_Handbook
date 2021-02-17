@@ -83,7 +83,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Review"}}}) {
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Review"}}}, sort: {fields: frontmatter___title, order: DESC}) {
       nodes {
         fields {
           slug
