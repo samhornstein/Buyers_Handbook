@@ -12,7 +12,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-16PXQV623L", // Google Analytics / GA
+          "G-16PXQV623L", // Google Analytics
         ],
         pluginConfig: {
           head: true,
@@ -41,7 +41,8 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 400,
-              wrapperStyle: 'float: left; width: 400px; height: 200px; overflow: hidden; margin-right: 50px;',
+              wrapperStyle:
+                "float: left; width: 400px; height: 200px; overflow: hidden; margin-right: 50px;",
             },
           },
           {
@@ -68,8 +69,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/blog/hello-word/salty_egg.jpg`,
+        icon: `/content/blog/hello-word/salty_egg.jpg`,
       },
     },
   ],
-}
+};
