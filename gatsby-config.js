@@ -3,26 +3,18 @@ module.exports = {
     title: `The Buyer's Handbook`,
     author: {
       name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    description: `A website to help consumers make buying decisions.`,
+    siteUrl: `https://buyershandbook.netlify.app/`,
   },
   plugins: [
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           "G-16PXQV623L", // Google Analytics / GA
-          // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
         ],
-        // This object is used for configuration specific to this plugin
         pluginConfig: {
-          // Puts tracking script in the head instead of the body
           head: true,
         },
       },
@@ -39,13 +31,6 @@ module.exports = {
       options: {
         path: `${__dirname}/content/reviews`,
         name: `reviews`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
       },
     },
     {
@@ -73,12 +58,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -89,12 +68,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/blog/hello-word/salty_egg.jpg`,
       },
     },
-    `gatsby-plugin-react-helmet`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

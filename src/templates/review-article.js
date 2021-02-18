@@ -1,9 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Bio from '../components/bio'
 
 const ReviewArticleTemplate = ({ data, location }) => {
   const article = data.markdownRemark
@@ -25,7 +23,6 @@ const ReviewArticleTemplate = ({ data, location }) => {
           <div style={{ display: 'inline-block', float: 'right' }} >
             Last updated {article.frontmatter.date}
           </div>
-          <Bio articleAuthor={article.frontmatter.author}/>  
         </header>
         <br />
         <section
