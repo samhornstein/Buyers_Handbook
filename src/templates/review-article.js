@@ -52,6 +52,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        date
         image {
           childImageSharp {
             fluid {
