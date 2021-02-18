@@ -26,7 +26,6 @@ const ReviewArticleTemplate = ({ data, location }) => {
             Last updated {article.frontmatter.date}
           </div>
         </header>
-        <br />
         <section
           dangerouslySetInnerHTML={{ __html: article.html }}
           itemProp="articleBody"
