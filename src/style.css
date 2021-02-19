@@ -362,9 +362,20 @@ a:focus {
   max-width: 50%;
 }
 
-
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+.image-grid {
+  display: inline-grid;
+  margin: 15px;
+}
+
+.image-style {
+  border-radius: "5px";
+  object-fit: "contain";
+  width: size;
+  height: "100%";
 }
 
 /*End of added by me*/

@@ -27,7 +27,7 @@ const Categories = ({ data, location }) => {
         <div>
           {uniqueCategoryImages.map((entry) => {
             return (
-              <div style={{ display: "inline-grid", margin: "10px" }}>
+              <div className="image-grid">
                 {entry.frontmatter.image ? (
                   <p>
                     <div class="container">

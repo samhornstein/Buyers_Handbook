@@ -19,12 +19,8 @@ const ReviewArticleTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h2 style={{ display: "inline-block", marginTop: "0" }}>
-            {article.frontmatter.title}
-          </h2>
-          <div style={{ display: "inline-block", float: "right" }}>
-            Last updated {article.frontmatter.date}
-          </div>
+          <h2>{article.frontmatter.title}</h2>
+          <div>Last updated {article.frontmatter.date}</div>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: article.html }}

@@ -12,42 +12,38 @@ const CategoryTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Reviews" />
       <h1>{nodes[0].frontmatter.category}</h1>
-      <ol style={{ listStyle: `none` }}>
-        {nodes.map((post) => {
-          return (
-            <div style={{ display: "inline-grid", margin: "10px" }}>
-              {post.frontmatter.image ? (
-                <p>
-                  <div class="container">
-                    <Link to={post.fields.slug} type="url">
-                      <div className="featured-thumbnail">
-                        <div className="crop_trending">
-                          <PreviewCompatibleImage
-                            imageInfo={{
-                              image: post.frontmatter.image,
-                              alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                              size: "300px",
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <h3
-                        style={{
-                          color: "white",
-                          textShadow: " 1px 1px 0 #000",
+      {nodes.map((post) => {
+        return (
+          <div className="image-grid">
+            {post.frontmatter.image ? (
+              <div class="container">
+                <Link to={post.fields.slug} type="url">
+                  <div className="featured-thumbnail">
+                    <div className="crop_trending">
+                      <PreviewCompatibleImage
+                        imageInfo={{
+                          image: post.frontmatter.image,
+                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                          size: "300px",
                         }}
-                        class="bottom-left"
-                      >
-                        {post.frontmatter.title}
-                      </h3>
-                    </Link>
+                      />
+                    </div>
                   </div>
-                </p>
-              ) : null}
-            </div>
-          );
-        })}
-      </ol>
+                  <h3
+                    style={{
+                      color: "white",
+                      textShadow: " 1px 1px 0 #000",
+                    }}
+                    class="bottom-left"
+                  >
+                    {post.frontmatter.title}
+                  </h3>
+                </Link>
+              </div>
+            ) : null}
+          </div>
+        );
+      })}
     </Layout>
   );
 };

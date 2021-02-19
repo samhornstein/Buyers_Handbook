@@ -37,31 +37,27 @@ const TrendingReviews = () => {
       <h3>Trending Reviews</h3>
       {posts.map((post) => {
         return (
-          <div style={{ display: "inline-grid", margin: "10px" }}>
+          <div className="image-grid">
             {post.node.frontmatter.image ? (
-              <p>
-                <div class="container">
-                  <Link to={post.node.fields.slug} type="url">
-                    <div className="featured-thumbnail">
-                      <div className="crop_trending">
-                        <PreviewCompatibleImage
-                          imageInfo={{
-                            image: post.node.frontmatter.image,
-                            alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
-                            size: "300px",
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <h3
-                      style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
-                      class="bottom-left"
-                    >
-                      {post.node.frontmatter.title}
-                    </h3>
-                  </Link>
-                </div>
-              </p>
+              <div class="container">
+                <Link to={post.node.fields.slug} type="url">
+                  <div className="crop_trending">
+                    <PreviewCompatibleImage
+                      imageInfo={{
+                        image: post.node.frontmatter.image,
+                        alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
+                        size: "300px",
+                      }}
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
+                    class="bottom-left"
+                  >
+                    {post.node.frontmatter.title}
+                  </h3>
+                </Link>
+              </div>
             ) : null}
           </div>
         );

@@ -1,19 +1,19 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react";
+import { Link, graphql } from "gatsby";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const Blog = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const posts = data.allMarkdownRemark.nodes;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
       <h1>Blog</h1>
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+      <ol>
+        {posts.map((post) => {
+          const title = post.frontmatter.title || post.fields.slug;
           return (
             <li key={post.fields.slug}>
               <article
@@ -39,14 +39,14 @@ const Blog = ({ data, location }) => {
                 </section>
               </article>
             </li>
-          )
+          );
         })}
       </ol>
     </Layout>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;
 
 export const pageQuery = graphql`
   query {
@@ -55,7 +55,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {type: {eq: "Blog"}}}) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { eq: "Blog" } } }
+    ) {
       nodes {
         excerpt
         fields {
@@ -69,4 +72,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

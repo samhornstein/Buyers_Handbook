@@ -69,7 +69,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `/content/blog/hello-word/salty_egg.jpg`,
+        icon: `content/blog/hello-world/salty_egg.jpg`,
       },
     },
   ],
