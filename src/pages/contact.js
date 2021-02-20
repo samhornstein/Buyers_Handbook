@@ -12,31 +12,31 @@ const Contact = ({ data, location }) => {
       <h1>Contact</h1>
       <h4>We would love to hear from you!</h4>
       <p>Please use the contact form below:</p>
-      <form
-        method="post"
-        netlify-honeypot="bot-field"
-        data-netlify="true"
-        name="contact"
-      >
-        <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="contact" />
-        <label>
-          Name
-          <input type="text" name="name" id="name" />
-        </label>
-        <label>
-          Email
-          <input type="text" name="email" id="email" />
-        </label>
-        <label>
-          Subject
-          <input type="text" name="subject" id="subject" />
-        </label>
-        <label>
-          Message
-          <textarea name="message" id="message" rows="5" />
-        </label>
-        <button type="submit">Send</button>
+      <form name="contact" method="POST" data-netlify="true">
+        <p>
+          <label>
+            Name <input type="text" name="name" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Email <br />
+            <input type="email" name="email" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Subject <input type="text" name="subject" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Message <textarea name="message" rows="5"></textarea>
+          </label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
       </form>
     </Layout>
   );

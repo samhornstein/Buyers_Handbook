@@ -380,8 +380,8 @@ a:focus {
 
 /*End of added by me*/
 
-/* Style inputs with type="text", select elements and textareas */
-input[type="text"],
+/* Style inputs select elements and textareas */
+input,
 select,
 textarea {
   width: 100%; /* Full width */
@@ -394,7 +394,7 @@ textarea {
   resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
-/* Style the submit button with a specific background color etc
+/* Style the submit button with a specific background color etc */
 input[type="submit"] {
   background-color: #4caf50;
   color: white;
@@ -404,17 +404,17 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-When moving the mouse over the submit button, add a darker green color
+/* When moving the mouse over the submit button, add a darker green color */
 input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-/* Add a background color and some padding around the form
+/* Add a background color and some padding around the form */
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
-} */
+}
 
 /* Media queries */
 
