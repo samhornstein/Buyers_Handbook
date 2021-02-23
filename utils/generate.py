@@ -40,10 +40,12 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
         print(features[0])
         if features[0] == 'Not Available':
             continue
-
         f = open(path+'index.md', 'a')
         f.write('###'+row['Title']+'\n')
-        f.write('######Sold by '+row['Seller']+'\n')
+        try:
+            f.write('######Sold by '+row['Seller']+'\n')
+        except:
+            print('Could not find seller information for '+row['Title'])
         f.write('!['+row['Title']+'](./'+row['Alias']+'.'+row['Image Extension']+')\n')
         f.write('###Product Info:\n')
         features = row['Features'].split("', '")
@@ -66,8 +68,12 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
         f.write('######[Check Price]('+"https://www.amazon.com"+row['Link']+')\n')
 
         with open(path+row['Alias']+'.'+row['Image Extension'], 'wb') as f:
-            decoded_string = base64.b64decode(row['Image Data'])
-            f.write(decoded_string)
+            try:
+                decoded_string = base64.b64decode(row['Image Data'])
+                f.write(decoded_string)
+            except:
+                print('The product for '+row['Title']+' could not be decoded.')
+             
 
 
 
