@@ -35,9 +35,13 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>© {new Date().getFullYear()}, The Buyer's Handbook</footer>
+      <div className="content-wrapper">
+        <header className="global-header">{header}</header>
+        <main>{children}</main>
+      </div>
+      <footer>
+        <p>© {new Date().getFullYear()}, The Buyer's Handbook</p>
+      </footer>
     </div>
   );
 };
