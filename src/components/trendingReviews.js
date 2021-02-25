@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import { useStaticQuery, graphql } from "gatsby";
 import ImageCard from "./ImageCard";
 
 const TrendingReviews = () => {

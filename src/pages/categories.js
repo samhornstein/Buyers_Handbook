@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import SEO from "../components/seo";
 import ImageCard from "../components/ImageCard";
 
