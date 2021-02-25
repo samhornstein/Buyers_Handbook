@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import SEO from "../components/seo";
+import ImageCard from "../components/ImageCard";
 
 const CategoryTemplate = ({ data, location }) => {
   const nodes = data.allMarkdownRemark.nodes;
@@ -16,30 +16,13 @@ const CategoryTemplate = ({ data, location }) => {
         return (
           <div className="image-grid">
             {post.frontmatter.image ? (
-              <div class="container">
-                <Link to={post.fields.slug} type="url">
-                  <div className="featured-thumbnail">
-                    <div className="crop_trending">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.image,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                          size: "300px",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <h3
-                    style={{
-                      color: "white",
-                      textShadow: " 1px 1px 0 #000",
-                    }}
-                    class="bottom-left"
-                  >
-                    {post.frontmatter.title}
-                  </h3>
-                </Link>
-              </div>
+              <ImageCard
+                image={post.frontmatter.image}
+                title={post.frontmatter.title}
+                slug={post.fields.slug}
+                size="290px"
+                containerStyle="crop_trending"
+              />
             ) : null}
           </div>
         );

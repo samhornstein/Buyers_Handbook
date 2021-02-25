@@ -27,13 +27,15 @@ const Categories = ({ data, location }) => {
       {uniqueCategoryImages.map((entry) => {
         return (
           <div className="image-grid">
-            <ImageCard
-              image={entry.frontmatter.image}
-              title={entry.frontmatter.category}
-              slug={entry.frontmatter.category}
-              size="290px"
-              containerStyle="crop_trending"
-            />
+            {entry.frontmatter.image ? (
+              <ImageCard
+                image={entry.frontmatter.image}
+                title={entry.frontmatter.category}
+                slug={entry.frontmatter.category}
+                size="290px"
+                containerStyle="crop_trending"
+              />
+            ) : null}
           </div>
         );
       })}
