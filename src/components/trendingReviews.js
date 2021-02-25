@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import ImageCard from "./ImageCard";
 
 const TrendingReviews = () => {
   const data = useStaticQuery(graphql`
@@ -39,25 +40,13 @@ const TrendingReviews = () => {
         return (
           <div className="image-grid">
             {post.node.frontmatter.image ? (
-              <div class="container">
-                <Link to={post.node.fields.slug} type="url">
-                  <div className="crop_trending">
-                    <PreviewCompatibleImage
-                      imageInfo={{
-                        image: post.node.frontmatter.image,
-                        alt: `featured image thumbnail for post ${post.node.frontmatter.title}`,
-                        size: "300px",
-                      }}
-                    />
-                  </div>
-                  <h3
-                    style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
-                    class="bottom-left"
-                  >
-                    {post.node.frontmatter.title}
-                  </h3>
-                </Link>
-              </div>
+              <ImageCard
+                image={post.node.frontmatter.image}
+                title={post.node.frontmatter.title}
+                slug={post.node.fields.slug}
+                size="290px"
+                containerStyle="crop_trending"
+              />
             ) : null}
           </div>
         );

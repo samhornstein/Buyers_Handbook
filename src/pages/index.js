@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import FeaturedReview from "../components/featuredReview";
 import TrendingReview from "../components/trendingReviews";
+// import FeaturedReviewRefactor from "../components/featuredReviewRefactor";
 
 const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -14,6 +15,7 @@ const Homepage = ({ data, location }) => {
       <SEO title="Homepage" />
       <p>The home of the most trusted, data-driven reviews on the internet.</p>
       <FeaturedReview />
+      {/* <FeaturedReviewRefactor /> */}
       <br />
       <TrendingReview />
     </Layout>

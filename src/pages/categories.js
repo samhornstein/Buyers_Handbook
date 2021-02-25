@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import SEO from "../components/seo";
+import ImageCard from "../components/ImageCard";
 
 const Categories = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -23,44 +24,19 @@ const Categories = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Categories " />
       <h1>Categories</h1>
-      <div>
-        <div>
-          {uniqueCategoryImages.map((entry) => {
-            return (
-              <div className="image-grid">
-                {entry.frontmatter.image ? (
-                  <p>
-                    <div class="container">
-                      <Link to={entry.frontmatter.category} type="url">
-                        <div className="featured-thumbnail">
-                          <div className="crop_trending">
-                            <PreviewCompatibleImage
-                              imageInfo={{
-                                image: entry.frontmatter.image,
-                                alt: `featured image thumbnail for post ${entry.frontmatter.title}`,
-                                size: "300px",
-                              }}
-                            />
-                          </div>
-                        </div>
-                        <h3
-                          style={{
-                            color: "white",
-                            textShadow: " 1px 1px 0 #000",
-                          }}
-                          class="bottom-left"
-                        >
-                          {entry.frontmatter.category}
-                        </h3>
-                      </Link>
-                    </div>
-                  </p>
-                ) : null}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      {uniqueCategoryImages.map((entry) => {
+        return (
+          <div className="image-grid">
+            <ImageCard
+              image={entry.frontmatter.image}
+              title={entry.frontmatter.category}
+              slug={entry.frontmatter.category}
+              size="290px"
+              containerStyle="crop_trending"
+            />
+          </div>
+        );
+      })}
     </Layout>
   );
 };
