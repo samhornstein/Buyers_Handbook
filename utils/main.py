@@ -6,8 +6,8 @@ from obtain_unsplash_image import obtain_unsplash_image
 
 keyword = 'surfboard bags'
 
-# df = store(keyword)
+df = store(keyword)
 
-# obtain_unsplash_image(keyword)
+obtain_unsplash_image(keyword)
 
 generate(keyword, category='Sports')

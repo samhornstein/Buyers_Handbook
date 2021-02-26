@@ -36,10 +36,11 @@ def store(keyword):
     # Loop for extracting links from Tag Objects
     for link in links:
         links_list.append(link.get('href'))
-        if len(links_list) == 10:
+        if len(links_list) == 3:
             break
  
     df = pd.DataFrame(columns=['Title', 'Alias', 'Link', 'Seller', 'Price', 'Rating', 'Review Count', 'Availability', 'Features', 'Image Data', 'Image Extension'])
+    df_reviews = pd.DataFrame(columns=['Title', 'Rating', 'Helpful', 'Text'])
 
     # Loop for extracting product details from each link 
     for link in links_list:
@@ -59,19 +60,17 @@ def store(keyword):
         availability = obtain_amazon_product.get_availability(new_soup)
         features = obtain_amazon_product.get_features(new_soup)
         image_data, image_extension = obtain_amazon_product.get_image(new_soup, alias)
-
+        ratings, review_text, helpful = obtain_amazon_product.obtain_reviews(new_soup)
 
         print("Fetched " + title)
+
+        df_reviews = df_reviews.append({'Title': [title]*len(ratings), 'Rating': ratings, 'Helpful': helpful, 'Text': review_text}, ignore_index=True)
 
         df = df.append({'Title': title, 'Alias': alias, 'Link': link, 'Seller': seller, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
 
         df['Price'].replace('', np.nan, inplace=True)
         df.replace('Not Available', np.nan, inplace=False)
-        # df['Availability'].replace('^Only', 'In Stock.', regex=True, inplace=True)
-        # df['Availability'].replace('In Stock.*', 'In Stock.', regex=True, inplace=True)
-        # df['Availability'].replace('?!In Stock.', np.nan, inplace=True)
         df.dropna(inplace=True)
-
         df.drop_duplicates(subset=['Title'], inplace=True)
         df.drop_duplicates(subset=['Image Data'], inplace=True)
         df.drop_duplicates(subset=['Seller'], inplace=True)
@@ -81,18 +80,15 @@ def store(keyword):
 
         time.sleep(5)
 
-
-
     df = df.head()
-
     base_path = Path(__file__).parent
-
     path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
 
     if not os.path.exists(path):
         os.makedirs(path)
 
     df.to_csv(path+'df_output.csv')
+    df_reviews.to_csv(path+'reviews_data.csv')
 
     return df
 

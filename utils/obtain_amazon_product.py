@@ -2,6 +2,7 @@ import base64
 from bs4 import BeautifulSoup
 import os
 from pathlib import Path
+import re
 import requests
 import time
  
@@ -9,13 +10,8 @@ import time
 def get_title(soup):
      
     try:
-        # Outer Tag Object
         title = soup.find("span", attrs={"id":'productTitle'})
- 
-        # Inner NavigatableString Object
         title_value = title.string
- 
-        # Title as a string value
         title_string = title_value.strip()
  
     except AttributeError:
@@ -37,16 +33,12 @@ def get_seller(soup):
 
 # Function to extract Product Price
 def get_price(soup):
- 
     try:
         price = soup.find("span", attrs={'id':'priceblock_ourprice'}).string.strip()
- 
     except AttributeError:
- 
         try:
             # If there is some deal price
             price = soup.find("span", attrs={'id':'priceblock_dealprice'}).string.strip()
- 
         except:     
             price = ""  
  
@@ -54,12 +46,10 @@ def get_price(soup):
  
 # Function to extract Product Rating
 def get_rating(soup):
- 
     try:
         rating = soup.find("i", attrs={'class':'a-icon a-icon-star a-star-4-5'}).string.strip()
          
     except AttributeError:
-         
         try:
             rating = soup.find("span", attrs={'class':'a-icon-alt'}).string.strip()
         except:
@@ -100,8 +90,6 @@ def get_features(soup):
 
         for feature in features:
             features_final.append(feature.find("span").string.strip())
-        # features = features.find_all("span", attrs={'class':'a-list-item'})
-        
 
     except AttributeError:
         features_final = "Not Available"
@@ -112,11 +100,7 @@ def get_features(soup):
 def get_description(soup):
     try:
         description = soup.find("div", attrs={'id':'productDescription'})
-        # description = description.find("ul")
         paragraphs = description.find_all("p").string
-        
-        # description = description.find("span")
-        
  
     except AttributeError:
         description = "Not Available"
@@ -126,37 +110,61 @@ def get_description(soup):
 #Function to extract Product Link
 def get_image(soup, title_string):
     try:
-        # base_path = Path(__file__).parent
-        path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+title_string
-
-        # if not os.path.exists(path):
-        #     os.makedirs(path)
-
-        # if not os.path.exists(base_path / 'product_images'):
-        #     os.makedirs(base_path / 'product_images')
-
+        # path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+title_string
         div = soup.find("div", attrs={'class':'imgTagWrapper'})
-
         base64_string = div.find("img")['src'][24:]
         file_type = div.find("img")['src'][12:16]
-        # decoded_string = base64.b64decode(base64_string)
 
-        relative_path = title_string+'.'+file_type
-        # file_path = base_path / relative_path
-        file_path = path+'/'+relative_path
-
-        # try:
-        #     with open(file_path, 'wb') as f:
-        #         f.write(decoded_string)
-        # except:
-        #     print("The project image for " + title_string + "could not be decoded.")
+        # relative_path = title_string+'.'+file_type
+        # file_path = path+'/'+relative_path
 
     except AttributeError:
         base64_string = b''
-        file_type = "jpeg"
+        file_type = "unknown"
 
     return base64_string, file_type
- 
+
+def obtain_reviews(soup):
+
+    # Find all reviews
+    try:
+        print('Review query successful')
+        reviews = soup.find_all('div', attrs={'id':re.compile('^customer_review')})
+    except AttributeError:
+        print('Review query unsuccessful')
+        reviews=""
+
+    ratings=[]
+    review_text=[]
+    helpful=[]
+
+    for review in reviews:
+        # Find ratings
+        try:
+            rating=int(review.find('span', attrs={'class':'a-icon-alt'}).string[0])
+            ratings.append(rating)
+        except AttributeError:
+            ratings.append("")
+
+        # Find review text
+        try:
+            text = review.find('div', attrs={'data-hook':'review-collapsed'})
+            review_text.append(text.find('span').text)
+        except AttributeError:
+            review_text.append("")
+
+        # Find helpful
+        try:
+            text = review.find('span', attrs={'data-hook':'helpful-vote-statement'}).string.split(' ')[0]
+            if text == 'One':
+                text=1
+            number = int(text)
+            helpful.append(number)
+        except AttributeError:
+            helpful.append(0)
+
+    return ratings, review_text, helpful
+    
  
 if __name__ == '__main__':
  
@@ -173,7 +181,7 @@ if __name__ == '__main__':
 
     # Soup Object containing all data
     soup = BeautifulSoup(webpage.content, "lxml")
- 
+
     # Fetch links as List of Tag Objects
     links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
 
