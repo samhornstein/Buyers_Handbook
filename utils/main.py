@@ -1,13 +1,13 @@
-from scrub import store
-from generate import generate
-from obtain_unsplash_image import obtain_unsplash_image
+import generate
+import obtain
+import store
 
 # keyword = input('Please enter the keyword you would like to generate a review for: ')
 
-keyword = 'coconut oil'
+keyword = 'curtains'
 
-df = store(keyword)
+# df = store.amazon(keyword)
 
-obtain_unsplash_image(keyword)
+# obtain.unsplash_image(keyword)
 
-generate(keyword, category='Food')
+generate.review(keyword, category='Home')

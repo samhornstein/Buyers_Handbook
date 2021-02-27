@@ -3,13 +3,12 @@ import requests
 import pandas as pd
 from pathlib import Path
 import numpy as np
-import obtain_amazon_product
-from obtain_unsplash_image import obtain_unsplash_image
+import obtain
 import os
 import re
 import time
 
-def store(keyword):
+def amazon(keyword):
 
     # Headers for request
     HEADERS = ({'User-Agent':
@@ -51,16 +50,16 @@ def store(keyword):
  
         new_soup = BeautifulSoup(new_webpage.content, "lxml")
 
-        title = obtain_amazon_product.get_title(new_soup)
+        title = obtain.amazon_title(new_soup)
         alias = re.sub(r'[^a-zA-Z0-9_]', '', title[:10])
-        price = obtain_amazon_product.get_price(new_soup)
-        seller = obtain_amazon_product.get_seller(new_soup)
-        rating = obtain_amazon_product.get_rating(new_soup)[:-15]
-        review_count = obtain_amazon_product.get_review_count(new_soup)[:-8]
-        availability = obtain_amazon_product.get_availability(new_soup)
-        features = obtain_amazon_product.get_features(new_soup)
-        image_data, image_extension = obtain_amazon_product.get_image(new_soup, alias)
-        ratings, review_text, helpful = obtain_amazon_product.obtain_reviews(new_soup)
+        price = obtain.amazon_price(new_soup)
+        seller = obtain.amazon_seller(new_soup)
+        rating = obtain.amazon_rating(new_soup)[:-15]
+        review_count = obtain.amazon_review_count(new_soup)[:-8]
+        availability = obtain.amazon_availability(new_soup)
+        features = obtain.amazon_features(new_soup)
+        image_data, image_extension = obtain.amazon_image(new_soup, alias)
+        ratings, review_text, helpful = obtain.amazon_reviews(new_soup)
 
         print("Fetched " + title)
 

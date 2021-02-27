@@ -5,7 +5,7 @@ date: February 2021
 description:
 type: Review
 category: Clothing
-special_status: Trending
+special_status: 
 image: main_product_image.jpg
 ---
 

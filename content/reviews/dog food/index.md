@@ -5,7 +5,7 @@ date: February 2021
 description: 
 type: Review
 category: Pets
-special_status: 
+special_status: Featured
 image: main_product_image.jpg
 ---
 ##Our Picks

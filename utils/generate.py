@@ -1,9 +1,10 @@
 import base64
+from colorama import Fore, Style
 from datetime import date
-import pandas as pd
 import os
+import pandas as pd
 
-def generate(keyword, author='', date=date.today().strftime("%B %Y"), description='', category="Miscellaneous", special_status='', **kwargs):
+def review(keyword, author='', date=date.today().strftime("%B %Y"), description='', category="Miscellaneous", special_status='', **kwargs):
     path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword+'/'
     df = pd.read_csv(path+'df_output.csv') 
 
@@ -37,7 +38,6 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
     for index, row in df.iterrows():
         # Check to see if features are available, if not skip to next product
         features = row['Features'].split("', '")
-        print(features[0])
         if features[0] == 'Not Available':
             continue
         f = open(path+'index.md', 'a')
@@ -45,7 +45,8 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
         try:
             f.write('######Sold by '+row['Seller']+'\n')
         except:
-            print('Could not find seller information for '+row['Title'])
+            print(Fore.YELLOW+'Warning: Could not find seller information for '+row['Title'])
+            print(Style.RESET_ALL)
         if row['Image Data'].startswith('http'):
             f.write('!['+row['Title']+']('+row['Image Data']+'.'+row['Image Extension']+')\n')
         else:
@@ -76,7 +77,9 @@ def generate(keyword, author='', date=date.today().strftime("%B %Y"), descriptio
                     decoded_string = base64.b64decode(row['Image Data'])
                     f.write(decoded_string)
                 except:
-                    print('The product for '+row['Title']+' could not be decoded.')
-
+                    print(Fore.YELLOW+'Warning: The product for '+row['Title']+' could not be decoded.')
+                    print(Style.RESET_ALL)
+        
+    print(Style.RESET_ALL)
 if __name__ == "__main__":
     generate()

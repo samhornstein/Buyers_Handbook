@@ -7,7 +7,7 @@ import requests
 import time
  
 # Function to extract Product Title
-def get_title(soup):
+def amazon_title(soup):
      
     try:
         title = soup.find("span", attrs={"id":'productTitle'})
@@ -20,7 +20,7 @@ def get_title(soup):
     return title_string
  
 #Function to extract Seller
-def get_seller(soup):
+def amazon_seller(soup):
     try:
         seller = soup.find("a", attrs={'id':'bylineInfo'})
         seller_value = seller.string
@@ -35,7 +35,7 @@ def get_seller(soup):
     return seller_string
 
 # Function to extract Product Price
-def get_price(soup):
+def amazon_price(soup):
     try:
         price = soup.find("span", attrs={'id':'priceblock_ourprice'}).string.strip()
     except AttributeError:
@@ -48,7 +48,7 @@ def get_price(soup):
     return price
  
 # Function to extract Product Rating
-def get_rating(soup):
+def amazon_rating(soup):
     try:
         rating = soup.find("i", attrs={'class':'a-icon a-icon-star a-star-4-5'}).string.strip()
          
@@ -61,7 +61,7 @@ def get_rating(soup):
     return rating
  
 # Function to extract Number of User Reviews
-def get_review_count(soup):
+def amazon_review_count(soup):
     try:
         review_count = soup.find("span", attrs={'id':'acrCustomerReviewText'}).string.strip()
          
@@ -71,7 +71,7 @@ def get_review_count(soup):
     return review_count
  
 # Function to extract Availability Status
-def get_availability(soup):
+def amazon_availability(soup):
     try:
         available = soup.find("div", attrs={'id':'availability'})
         available = available.find("span").string.strip()
@@ -82,7 +82,7 @@ def get_availability(soup):
     return available
 
 # Function to extract Product Features
-def get_features(soup):
+def amazon_features(soup):
     try:
         features = soup.find("div", attrs={'id':'featurebullets_feature_div'})
         features = soup.find("div", attrs={'id':'feature-bullets'})
@@ -100,7 +100,7 @@ def get_features(soup):
     return features_final   
 
 # Function to extract Product Description
-def get_description(soup):
+def amazon_description(soup):
     try:
         description = soup.find("div", attrs={'id':'productDescription'})
         paragraphs = description.find_all("p").string
@@ -111,7 +111,7 @@ def get_description(soup):
     return description 
 
 #Function to extract Product Link
-def get_image(soup, title_string):
+def amazon_image(soup, title_string):
     try:
         # path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+title_string
         div = soup.find("div", attrs={'class':'imgTagWrapper'})
@@ -134,14 +134,12 @@ def get_image(soup, title_string):
 
     return base64_string, file_type
 
-def obtain_reviews(soup):
+def amazon_reviews(soup):
 
     # Find all reviews
     try:
-        print('Review query successful')
         reviews = soup.find_all('div', attrs={'id':re.compile('^customer_review')})
     except AttributeError:
-        print('Review query unsuccessful')
         reviews=""
 
     ratings=[]
@@ -165,7 +163,7 @@ def obtain_reviews(soup):
 
         # Find helpful
         try:
-            text = review.find('span', attrs={'data-hook':'helpful-vote-statement'}).string.split(' ')[0]
+            text = review.find('span', attrs={'data-hook':'helpful-vote-statement'}).string.split(' ')[0].replace(',','')
             if text == 'One':
                 text=1
             number = int(text)
@@ -174,52 +172,46 @@ def obtain_reviews(soup):
             helpful.append(0)
 
     return ratings, review_text, helpful
-    
- 
-if __name__ == '__main__':
- 
+
+def unsplash_image(keyword):
+
     # Headers for request
     HEADERS = ({'User-Agent':
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36',
                 'Accept-Language': 'en-US'})
  
+    keyword.replace(" ", "+")
+
     # The webpage URL
-    URL = "https://www.amazon.com/s?k=guitar&i=mi&ref=nb_sb_noss_1"
+    URL = "https://unsplash.com/s/photos/" + keyword
      
     # HTTP Request
     webpage = requests.get(URL, headers=HEADERS)
-
+ 
     # Soup Object containing all data
     soup = BeautifulSoup(webpage.content, "lxml")
-
+ 
     # Fetch links as List of Tag Objects
-    links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
+    tag = soup.find("img", attrs={'class':'_2UpQX'})
+    image_url = tag['srcset'].split(' ')[-2]
+    print(f'Unsplash URL: {image_url}')
+ 
+    new_webpage = requests.get(image_url, headers=HEADERS)
 
-    # Store the links
-    links_list = []
+    path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+keyword
 
-    # Loop for extracting links from Tag Objects
-    for link in links:
-        links_list.append(link.get('href'))
-        if len(links_list)==1:
-            break
+    with open(path+'/main_product_image.jpg', 'wb') as handle:
+        response = requests.get(image_url, stream=True)
 
-    # Loop for extracting product details from each link 
-    for link in links_list:
-        new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
-        new_soup = BeautifulSoup(new_webpage.content, "lxml")
-         
-        # Function calls to display all necessary product information
-        print("Status code: " + str(new_webpage.status_code))
-        print("Product Title =", get_title(new_soup))
-        print("Product Price =", get_price(new_soup))
-        print("Product Rating =", get_rating(new_soup))
-        print("Number of Product Reviews =", get_review_count(new_soup))
-        print("Availability =", get_availability(new_soup))
-        print("Features =", get_features(new_soup))
-        print("Description =", get_description(new_soup))
-        # print("Image Link=", get_image(new_soup))
-        print()
-        print()
+        if not response.ok:
+            print(response)
 
-        time.sleep(5)
+        for block in response.iter_content(1024):
+            if not block:
+                break
+
+            handle.write(block)
+    
+ 
+if __name__ == '__main__':
+    unsplash_image('curtains')

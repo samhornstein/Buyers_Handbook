@@ -4,8 +4,8 @@ author:
 date: February 2021
 description: 
 type: Review
-category: Sports
-special_status: Trending
+category: Food
+special_status: 
 image: main_product_image.jpg
 ---
 ##Our Picks
