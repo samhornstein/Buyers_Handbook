@@ -5,7 +5,7 @@ date: February 2021
 description: The Best Flat-screen TVs
 type: Review
 category: Electronics
-special_status: 
+special_status: Trending
 image: main_product_image.jpg
 ---
 ##Our Picks
