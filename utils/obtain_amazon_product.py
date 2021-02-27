@@ -24,7 +24,10 @@ def get_seller(soup):
     try:
         seller = soup.find("a", attrs={'id':'bylineInfo'})
         seller_value = seller.string
-        seller_string = seller_value.strip()[10:-6]
+        if seller_value.startswith('Brand'):
+            seller_string = seller_value.strip()[8:]
+        else:
+            seller_string = seller_value.strip()[10:-6]
     
     except AttributeError:
         seller_string = ''
