@@ -112,8 +112,15 @@ def get_image(soup, title_string):
     try:
         # path = '/Users/samhornstein/gatsby-starter-blog-2/content/reviews/'+title_string
         div = soup.find("div", attrs={'class':'imgTagWrapper'})
-        base64_string = div.find("img")['src'][24:]
-        file_type = div.find("img")['src'][12:16]
+
+        img_src = div.find("img")['src']
+
+        if img_src.startswith('https'):
+            base64_string = img_src[:-4]
+            file_type=img_src[-3:]
+        else:
+            base64_string = div.find("img")['src'][24:]
+            file_type = div.find("img")['src'][12:16]
 
         # relative_path = title_string+'.'+file_type
         # file_path = path+'/'+relative_path

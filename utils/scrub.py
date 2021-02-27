@@ -36,7 +36,7 @@ def store(keyword):
     # Loop for extracting links from Tag Objects
     for link in links:
         links_list.append(link.get('href'))
-        if len(links_list) == 3:
+        if len(links_list) == 7:
             break
  
     df = pd.DataFrame(columns=['Title', 'Alias', 'Link', 'Seller', 'Price', 'Rating', 'Review Count', 'Availability', 'Features', 'Image Data', 'Image Extension'])
@@ -66,7 +66,7 @@ def store(keyword):
 
         df_reviews = df_reviews.append({'Title': [title]*len(ratings), 'Rating': ratings, 'Helpful': helpful, 'Text': review_text}, ignore_index=True)
 
-        df = df.append({'Title': title, 'Alias': alias, 'Link': link, 'Seller': seller, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
+        df = df.append({'Title': title, 'Alias': alias, 'Link': 'https://www.amazon.com'+link, 'Seller': seller, 'Price': price, 'Rating': rating, 'Review Count': review_count, 'Availability': availability, 'Features': features, 'Image Data': image_data, 'Image Extension': image_extension}, ignore_index=True)
 
         df['Price'].replace('', np.nan, inplace=True)
         df.replace('Not Available', np.nan, inplace=False)
