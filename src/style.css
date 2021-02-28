@@ -318,7 +318,7 @@ a:focus {
 /*added by me*/
 .container {
   position: relative;
-  text-align: center;
+  text-align: left;
   color: white;
 }
 
@@ -329,12 +329,25 @@ a:focus {
   left: 8px;
 }
 
+/* top left text */
+.top-left {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+}
+
 .category {
   display: inline-grid;
   padding: 2.5%;
 }
 
 .crop_featured {
+  width: 600px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.crop_blurb {
   width: 600px;
   height: 200px;
   overflow: hidden;
@@ -350,16 +363,19 @@ a:focus {
   width: 300px;
   height: 200px;
   overflow: hidden;
+
 }
 
 .crop_trending img {
   width: 400px;
   height: 400px;
   margin: -10px 0 0 0;
+
 }
 
 .featured-thumbnail {
   max-width: 50%;
+
 }
 
 .gatsby-highlight {
@@ -368,7 +384,7 @@ a:focus {
 
 .image-grid {
   display: inline-grid;
-  margin: 10px;
+  margin-right: 10px;
 }
 
 .image-style {

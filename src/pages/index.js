@@ -1,22 +1,23 @@
 import React from "react";
 import { graphql } from "gatsby";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import FeaturedReview from "../components/featuredReview";
 import TrendingReview from "../components/trendingReviews";
-// import FeaturedReviewRefactor from "../components/featuredReviewRefactor";
+import HomepageBlurb from "../components/HomepageBlurb"
 
 const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
-
+  
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Homepage" />
-      <p>The home of the most trusted, data-driven reviews on the internet.</p>
-      <FeaturedReview />
-      {/* <FeaturedReviewRefactor /> */}
-      <br />
+      <div className='image-grid'>              
+        <HomepageBlurb />
+      </div>
+      <div className='image-grid'>
+        <FeaturedReview />
+      </div>
       <TrendingReview />
     </Layout>
   );
@@ -29,6 +30,17 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allFile(filter: {absolutePath: {eq: "/Users/samhornstein/gatsby-starter-blog-2/content/assets/homepage-image.jpg"}}) {
+      edges {
+        node {
+          childImageSharp {
+            fluid {
+              base64
+            }
+          }
+        }
       }
     }
   }

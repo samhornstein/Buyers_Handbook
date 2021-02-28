@@ -8,6 +8,7 @@ const ImageCard = ({ image, title, slug, size, containerStyle }) => {
     objectFit: "contain",
     height: "100%",
     width: size,
+
   };
 
   return (
@@ -24,12 +25,37 @@ const ImageCard = ({ image, title, slug, size, containerStyle }) => {
             </div>
           </div>
         ) : null}
+        
+        {(containerStyle==='crop_featured') ? (
         <h2
+        style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
+        class="bottom-left"
+      >
+        {title}
+      </h2>
+        ) :  
+        containerStyle==='crop_trending' ? (
+        <h3
+        style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
+        class="bottom-left"
+      >
+        {title}
+      </h3>
+        ) : 
+          <h4
           style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
-          class="bottom-left"
+          class="top-left"
         >
-          {title}
-        </h2>
+          Welcome to the home of the most trusted data-driven reviews on the Internet.
+          <br/>
+          <br />
+          <br />
+          <br />
+          <br />
+          Click to find out more.
+        </h4>
+}
+
       </Link>
     </div>
   );
