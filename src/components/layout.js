@@ -14,19 +14,19 @@ const Layout = ({ location, title, children }) => {
 
   header = (
     <div>
-      <header>
-        <Link to="/">
+      <header className='nav-bar'>
+        <Link style={{ textDecoration: 'none' }} to="/">
           <h1 style={{ display: `inline` }}>{title}</h1>
-        </Link>
-        <ul style={{ listStyle: `none`, float: `right` }}>
-          <ListLink to="/categories">
-            <h5 style={{ display: `inline` }}>Categories</h5>
+        </Link >
+        <ul style={{ listStyle: `none`, float: `right`, textDecoration: 'none' }}>
+          <ListLink style={{ textDecoration: 'none' }} to="/categories">
+            <h5 style={{ display: `inline`, textDecoration: 'none' }}>Categories</h5>
           </ListLink>
-          <ListLink to="/about/">
-            <h5 style={{ display: `inline` }}>About</h5>
+          <ListLink style={{ textDecoration: 'none' }} to="/about/">
+            <h5 style={{ display: `inline`, textDecoration: 'none' }}>About</h5>
           </ListLink>
-          <ListLink to="/contact/">
-            <h5 style={{ display: `inline` }}>Contact</h5>
+          <ListLink style={{ textDecoration: 'none' }} to="/contact/">
+            <h5 style={{ display: `inline`, textDecoration: 'none' }}>Contact</h5>
           </ListLink>
         </ul>
       </header>

@@ -1,0 +1,100 @@
+1	nintendo switch	1,263,407
+2	laptop	1,099,346
+3	airpods	855,823
+4	headphones	788,390
+5	wireless earbuds	703,093
+6	ipad	697,451
+7	game of thrones	653,749
+8	fire stick	622,172
+9	ssd	610,063
+10	fitbit	591,244
+11	kindle	581,663
+12	tv	580,188
+13	air fryer	561,401
+14	bluetooth headphones	549,827
+15	roku	548,871
+16	toilet paper	519,449
+17	external hard drive	506,238
+18	tablet	495,977
+19	instant pot	494,065
+20	micro sd card	493,335
+21	gaming chair	482,491
+22	apple watch	480,140
+23	monitor	473,300
+24	earbuds	465,049
+25	ps4	454,253
+26	alexa	444,657
+27	paper towels	440,166
+28	desk	429,144
+29	office chair	407,844
+30	ring doorbell	396,561
+31	chromebook	394,535
+32	weighted blanket	393,384
+33	water bottle	386,527
+34	gift cards for amazon	384,258
+35	backpack	382,832
+36	hdmi cable	375,424
+37	lego	370,836
+38	wireless mouse	370,512
+39	mouse pad	366,865
+40	iphone charger	351,935
+41	hydro flask	350,347
+42	bluetooth earbuds	350,006
+43	gift card	340,442
+44	echo dot	339,486
+45	gaming mouse	339,340
+46	switch	337,962
+47	printer	333,910
+48	nintendo switch games	333,553
+49	keyboard	331,997
+50	bluetooth speakers	331,268
+51	iphone	324,022
+52	coffee	320,407
+53	aa batteries	317,797
+54	ps4 controller	316,225
+55	wireless headphones	315,819
+56	mouse	314,685
+57	shower curtain	313,728
+58	the boys	313,015
+59	shoes	311,621
+60	amazon gift cards	311,151
+61	led strip lights	306,385
+62	smart watch	306,353
+63	harry potter	303,500
+64	cbd oil	303,386
+65	kindle fire	302,317
+66	pop socket	298,296
+67	sd card	295,962
+68	xbox one controller	294,260
+69	ring	292,785
+70	microwave	291,456
+71	usb c cable	290,467
+72	good omens	290,435
+73	doctor who	289,738
+74	mattress	286,366
+75	gaming laptop	286,317
+76	hbo	282,184
+77	vacuum cleaner	281,179
+78	prime video	272,182
+79	iphone xr cases	271,339
+80	protein powder	265,666
+81	computer desk	265,179
+82	socks	262,245
+83	avengers endgame	259,911
+84	echo	256,231
+85	shoe rack	251,839
+86	iphone 11 case	250,704
+87	tv stand	250,234
+88	yoga mat	249,780
+89	aaa batteries	249,034
+90	gaming headset	248,143
+91	computer monitor	247,997
+92	blender	246,489
+93	books	246,441
+94	gaming pc	243,361
+95	dash cam	241,448
+96	pokemon	241,286
+97	luggage	240,848
+98	usb hub	240,654
+99	camera	240,313
+100	projector	239,730

@@ -62,8 +62,8 @@ def review(keyword, author='', date=date.today().strftime("%B %Y"), description=
                 f.write("- "+feature.split('. ')[0]+"\n")
 
         # f.write('######Check Price\n')
-        f.write('######[Check Price]('+row['Link']+')\n')
-        f.write('[<button class="button">'+row['Price']+" on Amazon</button>]("+row['Link']+')\n')
+        # f.write('######[Check Price]('+row['Link']+')\n')
+        f.write('\n[<button class="button">'+row['Price']+" on Amazon</button>]("+row['Link']+')\n')
 
         if not row['Image Data'].startswith('https'):
             with open(path+row['Alias']+'.'+row['Image Extension'], 'wb') as f:
