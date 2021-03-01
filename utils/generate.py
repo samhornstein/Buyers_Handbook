@@ -33,7 +33,7 @@ def review(keyword, author='', date=date.today().strftime("%B %Y"), description=
 
     f = open(path+'index.md', 'w')
     f.write(frontmatter)
-    f.write('##Our Picks\n')
+    # f.write('##Our Picks\n')
 
     for index, row in df.iterrows():
         # Check to see if features are available, if not skip to next product
@@ -42,16 +42,16 @@ def review(keyword, author='', date=date.today().strftime("%B %Y"), description=
             continue
         f = open(path+'index.md', 'a')
         f.write('###'+row['Title']+'\n')
-        try:
-            f.write('######Sold by '+row['Seller']+'\n')
-        except:
-            print(Fore.YELLOW+'Warning: Could not find seller information for '+row['Title'])
-            print(Style.RESET_ALL)
+        # try:
+        #     f.write('######Sold by '+row['Seller']+'\n')
+        # except:
+        #     print(Fore.YELLOW+'Warning: Could not find seller information for '+row['Title'])
+        #     print(Style.RESET_ALL)
         if row['Image Data'].startswith('http'):
             f.write('!['+row['Title']+']('+row['Image Data']+'.'+row['Image Extension']+')\n')
         else:
             f.write('!['+row['Title']+'](./'+row['Alias']+'.'+row['Image Extension']+')\n')
-        f.write('###Product Info:\n')
+        # f.write('###Product Info:\n')
         features = row['Features'].split("', '")
         features_length = len(features)-1
         for i, feature in enumerate(features):
@@ -69,7 +69,8 @@ def review(keyword, author='', date=date.today().strftime("%B %Y"), description=
                 f.write("- "+feature.split('. ')[0]+"\n")
 
         # f.write('######Check Price\n')
-        f.write('######[Check Price]('+"https://www.amazon.com"+row['Link']+')\n')
+        f.write('######[Check Price]('+row['Link']+')\n')
+        f.write('[<button class="button">'+row['Price']+" on Amazon</button>]("+row['Link']+')\n')
 
         if not row['Image Data'].startswith('https'):
             with open(path+row['Alias']+'.'+row['Image Extension'], 'wb') as f:

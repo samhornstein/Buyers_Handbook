@@ -39,6 +39,7 @@ const Layout = ({ location, title, children }) => {
         <header className="global-header">{header}</header>
         <main>{children}</main>
       </div>
+      <hr/>
       <footer>
         <p>© {new Date().getFullYear()}, The Buyer's Handbook</p>
       </footer>

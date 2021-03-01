@@ -13,22 +13,26 @@ const ReviewArticleTemplate = ({ data, location }) => {
         title={article.frontmatter.title}
         description={article.frontmatter.description || article.excerpt}
       />
+      
       <article
         className="blog-article"
         itemScope
         itemType="http://schema.org/Article"
       >
+        <div className='centered'>
         <header>
           <h2>{article.frontmatter.title}</h2>
+          <hr />
           <div>Last updated {article.frontmatter.date}</div>
         </header>
+        <br/>
         <section
           dangerouslySetInnerHTML={{ __html: article.html }}
           itemProp="articleBody"
         />
-        <hr />
-        <footer></footer>
+              </div>
       </article>
+
     </Layout>
   );
 };

@@ -49,7 +49,9 @@ module.exports = {
             options: {
               maxWidth: 400,
               wrapperStyle:
-                "float: left; width: 400px; height: 200px; overflow: hidden; margin-right: 50px;",
+                "float: center;",
+              // wrapperStyle:
+              //   "float: left; width: 400px; height: 200px; overflow: hidden; margin-right: 50px;",
             },
           },
           {
