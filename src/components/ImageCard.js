@@ -41,7 +41,7 @@ const ImageCard = ({ image, title, slug, size, containerStyle }) => {
       >
         {title}
       </h3>
-        ) : 
+        ) : (containerStyle==='crop_blurb') ? (
           <h4
           style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
           class="top-left"
@@ -54,6 +54,14 @@ const ImageCard = ({ image, title, slug, size, containerStyle }) => {
           <br />
           Click to find out more.
         </h4>
+        ) : (containerStyle==='crop_title') ? (
+          <h2
+          style={{ color: "white", textShadow: " 1px 1px 0 #000" }}
+          class="bottom-left"
+        >
+          {title}
+        </h2>
+        ) : null
 }
 
       </Link>

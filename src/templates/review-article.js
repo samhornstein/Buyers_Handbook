@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import ImageCard from "../components/ImageCard"
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -21,9 +22,16 @@ const ReviewArticleTemplate = ({ data, location }) => {
       >
         <div className='centered'>
         <header>
-          <h2>{article.frontmatter.title}</h2>
-          <hr />
-          <div>Last updated {article.frontmatter.date}</div>
+        <ImageCard
+                image={article.frontmatter.image}
+                title={article.frontmatter.title}
+                // slug={entry.frontmatter.category}
+                size="100%"
+                containerStyle="crop_title"
+              />
+          {/* <h2>{article.frontmatter.title}</h2> */}
+          {/* <hr /> */}
+          <h6>Last updated {article.frontmatter.date}</h6>
         </header>
         <br/>
         <section

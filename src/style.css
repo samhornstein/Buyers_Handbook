@@ -367,10 +367,17 @@ a:focus {
 }
 
 .crop_featured {
-  width: 600px;
+  width: 200%;
   height: 200px;
   overflow: hidden;
 }
+
+.crop_featured img {
+  width: 100%;
+  height: 400px;
+  margin: 0 0 0 0;
+}
+
 
 .crop_blurb {
   width: 600px;
@@ -378,10 +385,10 @@ a:focus {
   overflow: hidden;
 }
 
-.crop_featured img {
-  width: 600px;
-  height: 400px;
-  margin: 0 0 0 0;
+.crop_title {
+  width: 200%;
+  height: 100px;
+  overflow: hidden;
 }
 
 .crop_trending {
