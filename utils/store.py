@@ -1,10 +1,12 @@
 from bs4 import BeautifulSoup
+from colorama import Fore, Style
 import requests
 import pandas as pd
 from pathlib import Path
 import numpy as np
 import obtain
 import os
+import random
 import re
 import time
 
@@ -19,10 +21,22 @@ def amazon(keyword):
 
     # The webpage URL
     URL = "https://www.amazon.com/s?k=" + keyword + "&ref=nb_sb_noss_2"
+
+    # ip_addresses = ["47.242.78.34:8000"]
+    ip_addresses = ["47.242.78.34:8000"]
+
+    proxy_index = random.randint(0, len(ip_addresses) - 1)
+    proxy = {"http": "http://"+ip_addresses[proxy_index], "https": "https://"+ip_addresses[proxy_index]}
      
     # HTTP Request
-    webpage = requests.get(URL, headers=HEADERS)
- 
+    # try:
+    #     webpage = requests.get(URL, headers=HEADERS, proxies=proxy)
+    # except:
+    #     print(Fore.RED+'Error: Connection error using proxy ' + ip_addresses[proxy_index])
+    #     print(Style.RESET_ALL)
+
+    webpage = requests.get(URL, headers=HEADERS, proxies=proxy)
+
     # Soup Object containing all data
     soup = BeautifulSoup(webpage.content, "lxml")
  
@@ -77,7 +91,7 @@ def amazon(keyword):
         if len(df.index) == 5:
             break
 
-        time.sleep(5)
+        time.sleep(10)
 
     df = df.head()
     base_path = Path(__file__).parent

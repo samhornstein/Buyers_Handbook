@@ -76,4 +76,4 @@ def review(keyword, author='', date=date.today().strftime("%B %Y"), description=
         
     print(Style.RESET_ALL)
 if __name__ == "__main__":
-    generate()
+    review('mattress', category='Home')

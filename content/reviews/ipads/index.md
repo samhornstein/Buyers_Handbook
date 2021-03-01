@@ -1,0 +1,21 @@
+---
+title: Best Ipads
+author: 
+date: March 2021
+description: 
+type: Review
+category: Electronics
+special_status: 
+image: main_product_image.jpg
+---
+###New Apple iPad (10.2-inch, Wi-Fi, 32GB) - Silver (Latest Model, 8th Generation)
+![New Apple iPad (10.2-inch, Wi-Fi, 32GB) - Silver (Latest Model, 8th Generation)](https://images-na.ssl-images-amazon.com/images/I/71GsWDM8sPL.__AC_SY445_SX342_QL70_ML2_.jpg)
+- Gorgeous 10.2-inch Retina display
+- A12 Bionic chip with Neural Engine
+- Support for Apple Pencil (1st generation) and Smart Keyboard
+- 8MP back camera, 1.2MP FaceTime HD front camera
+- Stereo speakers
+- 802.11ac Wi-Fi
+- Up to 10 hours of battery life
+
+[<button class="button">$319.99 on Amazon</button>](https://www.amazon.com/Apple-iPad-10-2-inch-Wi-Fi-32GB/dp/B08J5Q255V/ref=sxin_3_lp-trr-2-na_8691d9e7af3725b7e04bc98370301567b8ead3fe?cv_ct_cx=ipad&dchild=1&keywords=ipads&pd_rd_i=B08J5Q255V&pd_rd_r=4777db27-5c89-4d93-935f-763450969ec8&pd_rd_w=Z0c4j&pd_rd_wg=osUsW&pf_rd_p=79c6e13e-fbdb-4ab1-8d83-9d1dbd2f11f4&pf_rd_r=1EW97Y6AJP5NWXP390B5&qid=1614629590&sr=1-1-5519553e-2baa-451e-af83-b0156e5c6669)

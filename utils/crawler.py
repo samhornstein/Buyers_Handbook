@@ -1,5 +1,6 @@
 import generate
 import obtain
+import pandas as pd
 import store
 
 # keyword = input('Please enter the keyword you would like to generate a review for: ')
@@ -12,14 +13,9 @@ import store
 
 # generate.review(keyword, category='Arts and Crafts')
 
-with open('/Users/samhornstein/gatsby-starter-blog-2/utils/input.txt', 'r') as f:
-    lines = f.read().splitlines()
-    lines_new = []
+keywords = pd.read_csv('/Users/samhornstein/gatsby-starter-blog-2/utils/keywords.csv', header=None, names=['Keyword', 'Category'])
 
-    for line in lines:
-        line_split = line.split('\t')
-        line_new = line_split[1]+'\n'
-        lines_new.append(line_new)
-
-with open('/Users/samhornstein/gatsby-starter-blog-2/utils/keywords.txt', 'w') as f:
-    f.writelines(lines_new)
+for index, row in keywords.iterrows():
+    df = store.amazon(row['Keyword'])
+    obtain.unsplash_image(row['Keyword'])
+    generate.review(row['Keyword'], category=row['Category'])

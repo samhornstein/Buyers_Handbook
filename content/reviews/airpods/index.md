@@ -1,0 +1,28 @@
+---
+title: Best Airpods
+author: 
+date: March 2021
+description: 
+type: Review
+category: Electronics
+special_status: 
+image: main_product_image.jpg
+---
+###Apple AirPods with Charging Case (Wired)
+![Apple AirPods with Charging Case (Wired)](https://images-na.ssl-images-amazon.com/images/I/71NTi82uBEL.__AC_SY445_SX342_QL70_ML2_.jpg)
+- Automatically on, automatically connected
+- Easy setup for all your Apple devices
+- Quick access to Siri by saying “Hey Siri”
+- Double-tap to play or skip forward
+- New Apple H1 headphone chip delivers faster wireless connection to your devices
+
+[<button class="button">$119.99 on Amazon</button>](https://www.amazon.com/gp/slredirect/picassoRedirect.html/ref=pa_sp_atf_aps_sr_pg1_1?ie=UTF8&adId=A1004870DBBUJLWQV2OL&url=%2FApple-AirPods-Charging-Latest-Model%2Fdp%2FB07PXGQC1Q%2Fref%3Dsr_1_1_sspa%3Fdchild%3D1%26keywords%3Dairpods%26qid%3D1614629427%26sr%3D8-1-spons%26psc%3D1&qualifier=1614629427&id=8806845734318341&widgetName=sp_atf)
+###Apple AirPods Pro (Renewed)
+![Apple AirPods Pro (Renewed)](https://images-na.ssl-images-amazon.com/images/I/71eGsUPZm2L.__AC_SX300_SY300_QL70_ML2_.jpg)
+- Active noise cancellation for immersive sound
+- Transparency mode for hearing and connecting with the world around you
+- Three sizes of soft, tapered silicone tips for a customizable fit
+- Sweat and water resistant
+- Adaptive EQ automatically tunes music to the shape of your ear
+
+[<button class="button">$177.95 on Amazon</button>](https://www.amazon.com/Apple-MWP22AM-A-cr-AirPods-Renewed/dp/B0828BJGD2/ref=sr_1_4?dchild=1&keywords=airpods&qid=1614629427&sr=8-4)
