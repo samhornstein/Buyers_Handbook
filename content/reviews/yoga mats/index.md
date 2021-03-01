@@ -5,7 +5,7 @@ date: March 2021
 description: 
 type: Review
 category: Sports
-special_status: 
+special_status: Trending
 image: main_product_image.jpg
 ---
 ###Amazon Basics 1/2-Inch Extra Thick Exercise Yoga Mat

@@ -4,7 +4,7 @@ author:
 date: February 2021
 description: 
 type: Review
-category: Food
+category: Food and Drink
 special_status: 
 image: main_product_image.jpg
 ---

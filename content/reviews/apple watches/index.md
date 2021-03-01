@@ -5,7 +5,7 @@ date: March 2021
 description: 
 type: Review
 category: Electronics
-special_status: 
+special_status: Trending
 image: main_product_image.jpg
 ---
 ###Smart Watch, Popglory Smartwatch with Blood Pressure, Blood Oxygen Monitor, Fitness Tracker with Heart Rate Monitor, Full Touch Fitness Watch for Android & iOS for Men Women

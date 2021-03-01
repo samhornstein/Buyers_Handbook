@@ -5,7 +5,7 @@ date: March 2021
 description: 
 type: Review
 category: Kitchen
-special_status: 
+special_status: Trending
 image: main_product_image.jpg
 ---
 ###AmazonBasics Microwave bundle with Echo Dot (3rd Gen) - Charcoal

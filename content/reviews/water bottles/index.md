@@ -5,7 +5,7 @@ date: March 2021
 description: 
 type: Review
 category: Sports
-special_status: 
+special_status: Trending
 image: main_product_image.jpg
 ---
 ###Fidus 32oz Leakproof Tritran BPA Free Water Bottle with Motivational Time Marker to Ensure You Drink Enough Water Daily for Fitness, Gym and Outdoor Sports

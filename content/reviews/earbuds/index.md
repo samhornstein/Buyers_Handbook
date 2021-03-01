@@ -5,7 +5,7 @@ date: March 2021
 description: 
 type: Review
 category: Electronics
-special_status: 
+special_status: Featured
 image: main_product_image.jpg
 ---
 ###Echo Buds – Wireless earbuds with immersive sound, active noise reduction, and Alexa

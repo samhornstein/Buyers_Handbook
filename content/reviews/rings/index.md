@@ -4,7 +4,7 @@ author:
 date: March 2021
 description: 
 type: Review
-category: Home
+category: Jewelery
 special_status: 
 image: main_product_image.jpg
 ---
@@ -32,18 +32,7 @@ image: main_product_image.jpg
 - ✔ 【 Good Quality 】 The strong alloy makes the jewelry difficult to break and fall off', "✔ 【 Find a Gift 】 Perfect Gift for women,girls,teens,daughter,girlfriend,wife,friends yourself on Halloween,Birthday,Christmas,Valentine's Day,Graduation,Easter,Anniversary etc", '✔ 【 Discover More Jewelry 】 Search or Click our catalog to surf our entire catalog listing on amazon for additional great Rings and False Nails
 
 [<button class="button">$8.88 on Amazon</button>](https://www.amazon.com/Cathercing-Knuckle-Bohemian-Vintage-Fesvital/dp/B0819HTY6S/ref=sr_1_3?dchild=1&keywords=rings&qid=1614635572&sr=8-3)
-###Hanes Men's Ecosmart Fleece Sweatshirt
-![Hanes Men's Ecosmart Fleece Sweatshirt](./HanesMen.jpeg)
-- 50% Cotton, 50% Polyester
-- Imported
-- Machine Wash
-- Cozy 7.8-ounce fleece made with up to 5 percent polyester created from recycled plastic
-- Pill-resistant fabric with high-stitch density for durability
-- Lay flat collar keeps its shape wash after wash
-- All the comfort of Hanes with our famous tag-free collar
-- Either tagless or with easily removed tearaway tag for comfort
 
-[<button class="button">$7.10 - $26.96 on Amazon</button>](https://www.amazon.com/Hanes-EcoSmart-Fleece-Sweatshirt-Stonewashed/dp/B071JYV6LN/ref=sr_1_4?dchild=1&keywords=rings&qid=1614635572&sr=8-4)
 ###PAVOI 14K Gold Plated Adjustable Created Opal Rings | Stacking Rings | Gold Rings for Women
 ![PAVOI 14K Gold Plated Adjustable Created Opal Rings | Stacking Rings | Gold Rings for Women](./PAVOI14K.jpeg)
 - This white opal ring will be a great addition to your jewelry box! The rose gold band of these womens rings flawlessly shows off the cubic zirconia stone and white opal
