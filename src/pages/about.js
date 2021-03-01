@@ -9,6 +9,7 @@ const About = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="About" />
+      <div className='centered'>
       <h1>About</h1>
       <h3>Mission</h3>
       <p>
@@ -30,6 +31,7 @@ const About = ({ data, location }) => {
         many products and so much information, it can be hard to sift through
         the junk. So let our reviews help.
       </p>
+      </div>
     </Layout>
   );
 };

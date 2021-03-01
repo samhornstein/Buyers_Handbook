@@ -15,15 +15,8 @@ def review(keyword, author='', date=date.today().strftime("%B %Y"), description=
 
     title = 'Best ' + ' '.join(title_list)
 
-
-    # title= "Best " + keyword[0].upper()+keyword[1:]
-    # author = "Sam"
-    # date= "2015-05-01T22:12:03.284Z"
-    # description= "Test description"
     article_type= "Review"
-    # category= "Electronics"
-    # special_status= "Trending"
-    # image= df['Alias'].iloc[0]+'.'+df['Image Extension'].iloc[0]
+
     image = 'main_product_image.jpg'
 
     frontmatter = "---\ntitle: "+title+"\nauthor: "+author+"\ndate: "+date+"\ndescription: "+description+"\ntype: "+article_type+"\ncategory: "+category+"\nspecial_status: "+special_status+"\nimage: "+image+"\n---\n"
