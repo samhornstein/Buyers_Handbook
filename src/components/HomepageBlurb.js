@@ -5,7 +5,7 @@ import ImageCard from "./ImageCard";
 const HomepageBlurb = () => {
   const data = useStaticQuery(graphql`
     query HomepageBlurb {
-      allFile(filter: {absolutePath: {eq: "/Users/samhornstein/gatsby-starter-blog-2/content/assets/homepage-image.jpg"}}) {
+      allFile(filter: {name: {eq: "homepage-image"}}) {
         edges {
           node {
             childImageSharp {
