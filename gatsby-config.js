@@ -5,7 +5,7 @@ module.exports = {
       name: `Kyle Mathews`,
     },
     description: `A website to help consumers make buying decisions.`,
-    siteUrl: `https://buyershandbook.netlify.app/`,
+    siteUrl: `https://www.buyershandbook.org/`,
   },
   plugins: [
     {
@@ -81,5 +81,6 @@ module.exports = {
         icon: `content/blog/hello-world/salty_egg.jpg`,
       },
     },
+    `gatsby-plugin-advanced-sitemap`
   ],
 };
