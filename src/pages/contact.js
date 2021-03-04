@@ -13,6 +13,7 @@ const Contact = ({ data, location }) => {
       <h1>Contact</h1>
       <p>We would love to hear from you!</p>
       <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
           <label>
             Name <input type="text" name="name" />
           </label>
