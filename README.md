@@ -1,6 +1,6 @@
 # Review Site
 ## Goal
-To create a website that automatically generates Amazon product reviews, and monetizes that content using affiliate links and advertisements.
+To create a website that automatically generates Amazon product reviews.
 ## Tools
 - Github for version control
 - Netfliy for deployment
