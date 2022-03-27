@@ -1,5 +1,5 @@
 # Buyer's Handbook
-A web application that automatically generates Amazon product reviews based on keywords.
+A web application that automatically generates Amazon product reviews based on keywords, hosted at buyershandbook.org.
 ## Architecture
 - Python to scrape Amazon for product review data and generate Markdown files.
 - Gatsby to build static frontend from Markdown files.
